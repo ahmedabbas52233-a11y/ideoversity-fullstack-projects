@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Day to Night</title>
+    <link rel="stylesheet" href="/sky-day-to-night/Style.css">
+</head>
+<body>
+
+    <div class="scene" id="scene">
+        <div class="stars" id="stars"></div>
+        <div class="sun" id="sun"></div>
+        <div class="moon" id="moon"></div>
+        <div class="clouds" id="clouds"></div>
+        <div class="mountains"></div>
+    </div>
+
+    <div class="controls">
+        <label for="timeSlider">Time of Day</label>
+        <input type="range" id="timeSlider" min="0" max="100" value="50" title="Adjust time of day" oninput="updateSky(this.value)">
+        <div class="labels"><span>Day</span><span>Night</span></div>
+    </div>
+
+    <script src="/sky-day-to-night/Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #e0e5ec;
+  --calc: #2d2d2d;
+  --display: #1a1a1a;
+  --num: #505050;
+  --op: #ff9500;
+  --func: #a6a6a6;
+  --text: #fff;
+}
+body.light {
+  --bg: #f0f0f0;
+  --calc: #fff;
+  --display: #f5f5f5;
+  --num: #e0e0e0;
+  --op: #ff6b00;
+  --func: #d0d0d0;
+  --text: #222;
+}
+body.neon {
+  --bg: #0a0a1a;
+  --calc: #1a1a2e;
+  --display: #16213e;
+  --num: #0f3460;
+  --op: #e94560;
+  --func: #533483;
+  --text: #eaeaea;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  transition: background 0.3s;
+}
+
+.calc-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.history-panel {
+  width: 220px;
+  background: var(--calc);
+  border-radius: 20px;
+  padding: 20px;
+  color: var(--text);
+  max-height: 520px;
+  overflow-y: auto;
+  display: none;
+}
+.history-panel.open {
+  display: block;
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+.history-header h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.history-header button {
+  background: none;
+  border: none;
+  color: var(--op);
+  cursor: pointer;
+  font-size: 12px;
+}
+.history-item {
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.history-item:hover {
+  color: var(--text);
+}
+.history-item .hist-res {
+  color: var(--op);
+  font-weight: 600;
+  float: right;
+}
+
+.calculator {
+  background: var(--calc);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  width: 360px;
+  transition: all 0.3s;
+}
+.calc-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.calc-top button {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.calc-top button:hover {
+  color: var(--op);
+}
+
+.display {
+  background: var(--display);
+  color: var(--text);
+  font-size: 44px;
+  text-align: right;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  min-height: 90px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+.display .previous {
+  font-size: 15px;
+  color: #888;
+  min-height: 24px;
+  font-weight: 400;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+button {
+  padding: 0;
+  height: 64px;
+  font-size: 20px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+button:active::after {
+  opacity: 1;
+}
+button:active {
+  transform: scale(0.95);
+}
+.num {
+  background: var(--num);
+}
+.num:hover {
+  background: #606060;
+}
+.operator {
+  background: var(--op);
+  color: #fff;
+}
+.operator:hover {
+  filter: brightness(1.15);
+}
+.func {
+  background: var(--func);
+  color: #000;
+}
+.func:hover {
+  filter: brightness(1.1);
+}
+.equals {
+  background: var(--op);
+  color: #fff;
+  grid-column: span 1;
+}
+.equals:hover {
+  filter: brightness(1.15);
+}
+.sci {
+  background: #3a3a3a;
+  font-size: 14px;
+  display: none;
+}
+.sci.visible {
+  display: flex;
+}
+.sci.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .calc-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .history-panel {
+    width: 100%;
+    max-height: 200px;
+  }
+  .calculator {
+    width: 100%;
+    max-width: 360px;
+  }
+}

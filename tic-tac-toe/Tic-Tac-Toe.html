@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="/tic-tac-toe/style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Tic Tac Toe</h1>
+        
+        <div class="score-board">
+            <div class="score">
+                <span>Player X</span>
+                <div id="scoreX">0</div>
+            </div>
+            <div class="score">
+                <span>Draws</span>
+                <div id="scoreDraw">0</div>
+            </div>
+            <div class="score">
+                <span>Player O</span>
+                <div id="scoreO">0</div>
+            </div>
+        </div>
+
+        <div class="status" id="status">Player X's Turn</div>
+
+        <div class="board" id="board">
+            <div class="cell" data-index="0" onclick="makeMove(0)" title="Cell 1"></div>
+            <div class="cell" data-index="1" onclick="makeMove(1)" title="Cell 2"></div>
+            <div class="cell" data-index="2" onclick="makeMove(2)" title="Cell 3"></div>
+            <div class="cell" data-index="3" onclick="makeMove(3)" title="Cell 4"></div>
+            <div class="cell" data-index="4" onclick="makeMove(4)" title="Cell 5"></div>
+            <div class="cell" data-index="5" onclick="makeMove(5)" title="Cell 6"></div>
+            <div class="cell" data-index="6" onclick="makeMove(6)" title="Cell 7"></div>
+            <div class="cell" data-index="7" onclick="makeMove(7)" title="Cell 8"></div>
+            <div class="cell" data-index="8" onclick="makeMove(8)" title="Cell 9"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="resetGame()" title="Reset game">New Game</button>
+            <button onclick="resetScores()" title="Reset scores">Reset Scores</button>
+        </div>
+    </div>
+
+    <script src="/tic-tac-toe/Script.js"></script>
+</body>
+</html>

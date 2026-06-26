@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog + Digital Clock</title>
+    <link rel="stylesheet" href="/Clock/style.css">
+</head>
+<body>
+    <h1>Clock</h1>
+
+    <div class="analog-clock" id="analog">
+        <div class="center-dot"></div>
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minuteHand"></div>
+        <div class="hand second-hand" id="secondHand"></div>
+    </div>
+
+    <div class="digital-clock" id="digital">
+        <span id="dHour">00</span><span class="colon">:</span><span id="dMinute">00</span><span class="colon">:</span><span id="dSecond">00</span>
+    </div>
+    <div class="date" id="date">Loading...</div>
+
+    <script src="/Clock/script.js"></script>
+</body>
+</html>
