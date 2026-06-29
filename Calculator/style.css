@@ -82,10 +82,10 @@ body::before {
     background: var(--panel-bg);
     border-radius: 24px;
     border: 1px solid rgba(0, 243, 255, 0.1);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     padding: 24px;
-    display: flex;
+    display: none;
     flex-direction: column;
     max-height: 640px;
     transform: translateX(-20px);
@@ -213,8 +213,8 @@ body::before {
     background: var(--panel-bg);
     border-radius: 32px;
     border: 1px solid rgba(0, 243, 255, 0.15);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     padding: 28px;
     box-shadow:
         0 0 40px rgba(0, 243, 255, 0.1),
@@ -598,7 +598,7 @@ button:active::before {
     }
 }
 
-/* Themes */
+/* Themes - applied via body class */
 body.theme-pink {
     --neon-cyan: #ff00ff;
     --neon-pink: #00f3ff;
@@ -625,11 +625,6 @@ body.theme-gold {
         width: 100%;
         max-width: 400px;
         max-height: 200px;
-        display: none;
-    }
-
-    .history-panel.open {
-        display: flex;
     }
 
     .calculator {
