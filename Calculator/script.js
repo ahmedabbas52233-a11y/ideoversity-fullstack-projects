@@ -10,6 +10,16 @@ let angleMode = 'DEG'; // or 'RAD'
 let currentTheme = 0;
 const themes = ['', 'theme-pink', 'theme-green', 'theme-gold'];
 
+// Audio Context for sound synthesis
+let audioCtx = null;
+
+function getAudioContext() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return audioCtx;
+}
+
 // DOM Elements
 const currentDisplay = document.getElementById('current');
 const previousDisplay = document.getElementById('previous');
@@ -19,7 +29,6 @@ const historyList = document.getElementById('historyList');
 const historyPanel = document.getElementById('historyPanel');
 const sciKeys = document.getElementById('sciKeys');
 const progKeys = document.getElementById('progKeys');
-const keypad = document.getElementById('keypad');
 const soundBtn = document.getElementById('soundBtn');
 const angleBtn = document.getElementById('angleBtn');
 
@@ -36,20 +45,28 @@ function createParticles() {
 }
 createParticles();
 
-// Sound
+// Sound - using Web Audio API for reliable cross-browser support
 function playSound() {
     if (!soundEnabled) return;
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.frequency.value = 800;
-    osc.type = 'sine';
-    gain.gain.setValueAtTime(0.1, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.1);
+    try {
+        const ctx = getAudioContext();
+        // Resume context if suspended (browser autoplay policy)
+        if (ctx.state === 'suspended') {
+            ctx.resume();
+        }
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 1200;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.08);
+    } catch (e) {
+        // Audio not supported, silently fail
+    }
 }
 
 // Ripple effect
@@ -111,11 +128,11 @@ function chooseOperation(op) {
 function calculate() {
     playSound();
     if (!operation || previous === '') return;
-    
+
     let computation;
     const prev = parseFloat(previous);
     const curr = parseFloat(current);
-    
+
     if (isNaN(prev) || isNaN(curr)) return;
 
     switch (operation) {
@@ -136,20 +153,16 @@ function calculate() {
 
     // Fix floating point
     computation = parseFloat(computation.toFixed(10));
-    
+
     addHistory(`${previous} ${operation} ${current}`, computation);
-    
+
     current = computation.toString();
     previous = '';
     operation = null;
     shouldReset = true;
-    
+
     document.querySelectorAll('.operator').forEach(b => b.classList.remove('active'));
     updateDisplay();
-    
-    // Success animation
-    currentDisplay.style.animation = 'none';
-    setTimeout(() => currentDisplay.style.animation = '', 10);
 }
 
 // Scientific functions
@@ -198,7 +211,6 @@ function factorial(n) {
 function progFunc(fn) {
     playSound();
     const val = parseInt(current) || 0;
-    let result;
 
     switch (fn) {
         case 'bin': current = val.toString(2); break;
@@ -327,14 +339,27 @@ function setMode(mode) {
     }
 }
 
-// Theme
+// Theme - FIXED: proper class cycling on body
 function cycleTheme() {
     playSound();
-    document.body.classList.remove(themes[currentTheme]);
-    currentTheme = (currentTheme + 1) % themes.length;
+    const body = document.body;
+
+    // Remove current theme class
     if (themes[currentTheme]) {
-        document.body.classList.add(themes[currentTheme]);
+        body.classList.remove(themes[currentTheme]);
     }
+
+    // Move to next theme
+    currentTheme = (currentTheme + 1) % themes.length;
+
+    // Add new theme class if not default
+    if (themes[currentTheme]) {
+        body.classList.add(themes[currentTheme]);
+    }
+
+    // Update button text to show current theme
+    const themeNames = ['Cyan', 'Pink', 'Green', 'Gold'];
+    event.target.textContent = '◐ ' + themeNames[currentTheme];
 }
 
 // Sound toggle
@@ -358,17 +383,27 @@ function toggleAngle() {
 }
 
 // Keyboard support
+function findButtonByText(text) {
+    const buttons = document.querySelectorAll('button');
+    for (const btn of buttons) {
+        if (btn.textContent.trim() === text) return btn;
+    }
+    return null;
+}
+
 document.addEventListener('keydown', (e) => {
-    if (e.key >= '0' && e.key <= '9') { playSound(); appendNumber(e.key); }
-    if (e.key === '.') { playSound(); appendNumber('.'); }
-    if (e.key === '+') { playSound(); document.querySelector('[onclick*="chooseOperation(\'+\'"]').click(); }
-    if (e.key === '-') { playSound(); document.querySelector('[onclick*="chooseOperation(\'-\'"]').click(); }
-    if (e.key === '*') { playSound(); document.querySelector('[onclick*="chooseOperation(\'×\'"]').click(); }
-    if (e.key === '/') { playSound(); e.preventDefault(); document.querySelector('[onclick*="chooseOperation(\'÷\'"]').click(); }
-    if (e.key === '%') { playSound(); document.querySelector('[onclick*="chooseOperation(\'%\'"]').click(); }
-    if (e.key === 'Enter' || e.key === '=') { playSound(); calculate(); }
-    if (e.key === 'Escape') { playSound(); clearAll(); }
-    if (e.key === 'Backspace') { playSound(); deleteLast(); }
+    const key = e.key;
+
+    if (key >= '0' && key <= '9') { playSound(); appendNumber(key); }
+    else if (key === '.') { playSound(); appendNumber('.'); }
+    else if (key === '+') { playSound(); chooseOperation('+'); }
+    else if (key === '-') { playSound(); chooseOperation('-'); }
+    else if (key === '*') { playSound(); e.preventDefault(); chooseOperation('×'); }
+    else if (key === '/') { playSound(); e.preventDefault(); chooseOperation('÷'); }
+    else if (key === '%') { playSound(); chooseOperation('%'); }
+    else if (key === 'Enter' || key === '=') { playSound(); calculate(); }
+    else if (key === 'Escape') { playSound(); clearAll(); }
+    else if (key === 'Backspace') { playSound(); deleteLast(); }
 });
 
 // Initialize
