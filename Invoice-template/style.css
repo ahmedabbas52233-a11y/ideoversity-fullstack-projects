@@ -1,0 +1,62 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; color: #333; padding: 40px 20px; }
+
+.invoice { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+.header { display: flex; justify-content: space-between; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
+.brand h1 { font-size: 42px; font-weight: 800; letter-spacing: 2px; outline: none; }
+.brand p { opacity: 0.8; margin-top: 4px; outline: none; }
+.company-info { text-align: right; font-size: 14px; line-height: 1.6; outline: none; }
+
+.meta { display: flex; justify-content: space-between; padding: 30px 40px; border-bottom: 1px solid #f0f0f0; }
+.meta label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 8px; }
+.bill-to { font-size: 14px; line-height: 1.6; outline: none; }
+.invoice-meta { text-align: right; }
+.invoice-meta div { margin-bottom: 12px; }
+.invoice-meta span { font-weight: 600; outline: none; }
+
+.items-table { width: 100%; border-collapse: collapse; }
+.items-table th { text-align: left; padding: 16px 40px; background: #f8f9fa; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; border-bottom: 2px solid #e9ecef; }
+.items-table td { padding: 16px 40px; border-bottom: 1px solid #f0f0f0; font-size: 14px; outline: none; }
+.items-table td.num { text-align: right; font-family: 'Courier New', monospace; }
+.items-table td.amount { text-align: right; font-weight: 600; color: #667eea; }
+.remove-btn { background: #ff4757; color: #fff; border: none; width: 24px; height: 24px; border-radius: 50%; cursor: pointer; font-size: 14px; line-height: 1; opacity: 0; transition: opacity .2s; }
+tr:hover .remove-btn { opacity: 1; }
+
+.add-btn { margin: 20px 40px; padding: 10px 20px; background: none; border: 2px dashed #667eea; color: #667eea; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
+.add-btn:hover { background: #667eea; color: #fff; }
+
+.totals { display: flex; justify-content: space-between; padding: 30px 40px; background: #f8f9fa; }
+.tax-control { display: flex; align-items: center; gap: 12px; }
+.tax-control label { font-size: 13px; color: #666; }
+.tax-control input { width: 120px; }
+.tax-control span { font-weight: 600; color: #667eea; min-width: 40px; }
+.totals-table { width: 280px; }
+.totals-table div { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+.totals-table .grand { font-size: 18px; font-weight: 700; color: #333; border-top: 2px solid #333; margin-top: 8px; padding-top: 12px; }
+
+.notes { padding: 30px 40px; font-size: 13px; color: #666; line-height: 1.6; outline: none; }
+
+.actions { max-width: 800px; margin: 20px auto; display: flex; gap: 12px; justify-content: flex-end; }
+.actions button { padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all .2s; }
+.actions button:first-child { background: #667eea; color: #fff; }
+.actions button:last-child { background: #fff; color: #666; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.actions button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+[contenteditable="true"]:hover { background: rgba(102,126,234,0.05); border-radius: 4px; }
+[contenteditable="true"]:focus { background: rgba(102,126,234,0.08); outline: 2px solid #667eea; border-radius: 4px; }
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .invoice { box-shadow: none; border-radius: 0; }
+  .actions { display: none; }
+  .remove-btn { display: none; }
+  .add-btn { display: none; }
+}
+
+@media (max-width: 640px) {
+  .header { flex-direction: column; gap: 20px; }
+  .company-info { text-align: left; }
+  .meta { flex-direction: column; gap: 20px; }
+  .totals { flex-direction: column; gap: 20px; }
+  .items-table th, .items-table td { padding: 12px 20px; }
+}
