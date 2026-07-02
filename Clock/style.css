@@ -1,357 +1,449 @@
 :root {
-    --primary: #00f0ff;
-    --secondary: #ff00a0;
-    --bg: #050508;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+  --primary: #00f0ff;
+  --secondary: #ff00a0;
+  --bg: #050508;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: 'Rajdhani', sans-serif;
-    background: var(--bg);
-    color: #fff;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: crosshair;
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
 }
 
 #bg-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .scanlines {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.02) 50%, transparent 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .vignette {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
-    pointer-events: none;
-    z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
 }
 
 .main-container {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2.5rem 3.5rem;
-    background: var(--glass);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out;
-    max-width: 90vw;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 3.5rem;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  max-width: 90vw;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--primary);
-    text-shadow: 0 0 10px rgba(0,240,255,0.5);
-    opacity: 0.8;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  opacity: 0.8;
 }
 
 .theme-btn {
-    background: transparent;
-    border: 1px solid var(--glass-border);
-    color: var(--primary);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--primary);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .theme-btn:hover {
-    background: rgba(0, 240, 255, 0.1);
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(0,240,255,0.4), 0 0 60px rgba(0,240,255,0.1);
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--primary);
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.4),
+    0 0 60px rgba(0, 240, 255, 0.1);
 }
 
 .clock-wrapper {
-    position: relative;
-    width: 300px;
-    height: 300px;
+  position: relative;
+  width: 300px;
+  height: 300px;
 }
 
 .analog-clock {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border: 2px solid rgba(255,255,255,0.05);
-    border-radius: 50%;
-    background: transparent;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  background: transparent;
 }
 
 .ring-outer {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.05);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 .ring-glow {
-    position: absolute;
-    top: -10px; left: -10px;
-    width: calc(100% + 20px); height: calc(100% + 20px);
-    border-radius: 50%;
-    border: 1px solid var(--primary);
-    opacity: 0.3;
-    filter: blur(8px);
-    animation: pulse-glow 4s ease-in-out infinite;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  opacity: 0.3;
+  filter: blur(8px);
+  animation: pulse-glow 4s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.02); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
 }
 
 .analog-clock .number {
-    position: absolute;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.6);
-    width: 30px; height: 30px;
-    text-align: center;
-    line-height: 30px;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  transform: translate(-50%, -50%);
 }
 
 .tick {
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 2px;
-    background: rgba(255,255,255,0.15);
-    transform-origin: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  transform-origin: center;
 }
 
 .tick.major {
-    height: 14px;
-    width: 3px;
-    background: rgba(255,255,255,0.4);
-    margin-top: -7px;
-    margin-left: -1.5px;
+  height: 14px;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-top: -7px;
+  margin-left: -1.5px;
 }
 
 .tick.minor {
-    height: 6px;
-    margin-top: -3px;
-    margin-left: -1px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -1px;
 }
 
 .hand {
-    position: absolute;
-    bottom: 50%; left: 50%;
-    transform-origin: bottom center;
-    border-radius: 4px;
-    transition: transform 0.05s cubic-bezier(0.4, 2.3, 0.3, 1);
-    will-change: transform;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+  transition: transform 0.05s cubic-bezier(0.4, 2.3, 0.3, 1);
+  will-change: transform;
 }
 
 .hour-hand {
-    width: 6px;
-    height: 70px;
-    background: linear-gradient(to top, var(--primary), rgba(0,240,255,0.3));
-    margin-left: -3px;
-    box-shadow: 0 0 15px rgba(0,240,255,0.3);
-    border-radius: 3px;
+  width: 6px;
+  height: 70px;
+  background: linear-gradient(to top, var(--primary), rgba(0, 240, 255, 0.3));
+  margin-left: -3px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  border-radius: 3px;
 }
 
 .minute-hand {
-    width: 4px;
-    height: 100px;
-    background: linear-gradient(to top, #ccc, rgba(255,255,255,0.3));
-    margin-left: -2px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    border-radius: 2px;
+  width: 4px;
+  height: 100px;
+  background: linear-gradient(to top, #ccc, rgba(255, 255, 255, 0.3));
+  margin-left: -2px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
 }
 
 .second-hand {
-    width: 2px;
-    height: 120px;
-    background: linear-gradient(to top, var(--secondary), rgba(255,0,160,0.3));
-    margin-left: -1px;
-    box-shadow: 0 0 15px rgba(255,0,160,0.4);
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(to top, var(--secondary), rgba(255, 0, 160, 0.3));
+  margin-left: -1px;
+  box-shadow: 0 0 15px rgba(255, 0, 160, 0.4);
 }
 
 .second-hand::after {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 25px;
-    background: var(--secondary);
-    opacity: 0.4;
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: var(--secondary);
+  opacity: 0.4;
 }
 
 .center-dot {
-    position: absolute;
-    width: 16px; height: 16px;
-    background: radial-gradient(circle, var(--primary), var(--secondary));
-    border-radius: 50%;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary);
-    z-index: 20;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, var(--primary), var(--secondary));
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 20px var(--primary),
+    0 0 40px var(--secondary);
+  z-index: 20;
 }
 
 .center-dot::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px; height: 6px;
-    background: #fff;
-    border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
 }
 
 .digital-clock {
-    font-family: 'Orbitron', monospace;
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: 8px;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px var(--primary);
-    position: relative;
-    line-height: 1;
+  font-family: 'Orbitron', monospace;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px var(--primary);
+  position: relative;
+  line-height: 1;
 }
 
 .digital-clock .colon {
-    animation: blink-cursor 1.5s infinite;
-    color: var(--primary);
+  animation: blink-cursor 1.5s infinite;
+  color: var(--primary);
 }
 
 @keyframes blink-cursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
 }
 
 .date {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .stats-row {
-    display: flex;
-    gap: 2rem;
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
 }
 
 .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .stat-label {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.55rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .stat-bar-bg {
-    width: 80px;
-    height: 3px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
+  width: 80px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
 }
 
 .stat-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    border-radius: 2px;
-    transition: width 0.5s ease;
-    box-shadow: 0 0 10px var(--primary);
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px var(--primary);
 }
 
 .stat-value {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.65rem;
-    color: var(--primary);
-    letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: var(--primary);
+  letter-spacing: 2px;
 }
 
 .decorative-line {
-    width: 60%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    opacity: 0.3;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.3;
 }
 
 .corner {
-    position: absolute;
-    width: 20px; height: 20px;
-    border: 1px solid var(--primary);
-    opacity: 0.4;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--primary);
+  opacity: 0.4;
 }
 
-.corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
-.corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
-.corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
-.corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+.corner.tl {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner.tr {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+.corner.bl {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+.corner.br {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
 
 @media (max-width: 600px) {
-    .main-container { padding: 2rem; gap: 1.2rem; }
-    .clock-wrapper { width: 250px; height: 250px; }
-    .digital-clock { font-size: 36px; letter-spacing: 4px; }
-    .hour-hand { height: 58px; }
-    .minute-hand { height: 82px; }
-    .second-hand { height: 98px; }
-    .stats-row { gap: 1rem; }
+  .main-container {
+    padding: 2rem;
+    gap: 1.2rem;
+  }
+  .clock-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+  .digital-clock {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+  .hour-hand {
+    height: 58px;
+  }
+  .minute-hand {
+    height: 82px;
+  }
+  .second-hand {
+    height: 98px;
+  }
+  .stats-row {
+    gap: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .ring-glow, .digital-clock .colon { animation: none; }
-    .hand { transition: none; }
+  .ring-glow,
+  .digital-clock .colon {
+    animation: none;
+  }
+  .hand {
+    transition: none;
+  }
 }

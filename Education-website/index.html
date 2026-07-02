@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EducationWebsite — Empowering Future Leaders</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="navbar">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text">
+          <h1>EducationWebsite</h1>
+          <p>Empowering learners since 1998</p>
+        </div>
+      </div>
+      <button
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+      <nav class="nav" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About us</a>
+        <a href="#students">Students</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <img
+        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200"
+        alt="Students collaborating on campus"
+      />
+      <div class="hero-overlay reveal">
+        <h2>Shaping Tomorrow's<br />Leaders Today</h2>
+        <p>
+          Join a community of 12,000+ students and 800 faculty members dedicated
+          to academic excellence, innovative research, and transformative
+          learning experiences. Our comprehensive programs blend rigorous
+          academics with real-world application.
+        </p>
+        <a href="#about" class="hero-btn">Explore Programs</a>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section reveal" id="about">
+      <div class="stat-card">
+        <div class="stat-num" data-target="12400">0</div>
+        <div class="stat-label">Students Enrolled</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="850">0</div>
+        <div class="stat-label">Expert Faculty</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="320">0</div>
+        <div class="stat-label">Degree Programs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="94">0</div>
+        <div class="stat-label">% Graduation Rate</div>
+      </div>
+    </section>
+
+    <!-- Three Columns -->
+    <section class="columns-section" id="students">
+      <!-- Column 1: Programs -->
+      <div class="column reveal">
+        <div class="col-header red">Academic Programs</div>
+        <div class="col-body">
+          <img
+            src="https://images.unsplash.com/photo-1562774053-701939374585?w=400"
+            class="col-img"
+            alt="Modern university building"
+          />
+          <p>
+            Our main campus features state-of-the-art facilities designed to
+            foster collaboration and innovation. From advanced research labs to
+            collaborative study spaces, every corner is built to inspire.
+          </p>
+          <a href="#" class="see-more">View Campus</a>
+
+          <img
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=400"
+            class="col-img"
+            alt="Library interior"
+          />
+          <p>
+            The Jameson Memorial Library houses over 2 million volumes and
+            provides 24/7 digital access to leading academic journals,
+            databases, and rare manuscript collections.
+          </p>
+          <a href="#" class="see-more">Library Services</a>
+        </div>
+      </div>
+
+      <!-- Column 2: Resources -->
+      <div class="column reveal">
+        <div class="col-header brown">Student Resources</div>
+        <div class="col-body">
+          <ul class="col-list">
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                alt="Graduate icon"
+              />
+              <p>
+                <strong>Career Services:</strong> Personalized counseling,
+                resume workshops, and connections with 500+ hiring partners
+                worldwide.
+              </p>
+            </li>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png"
+                alt="Books icon"
+              />
+              <p>
+                <strong>Online Learning:</strong> Access 1,200+ courses through
+                our digital platform with live lectures and interactive modules.
+              </p>
+            </li>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png"
+                alt="Scroll icon"
+              />
+              <p>
+                <strong>Scholarships:</strong> Over $45 million in merit and
+                need-based aid awarded annually to qualified students.
+              </p>
+            </li>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"
+                alt="Science icon"
+              />
+              <p>
+                <strong>Research Labs:</strong> 35 specialized laboratories
+                supporting breakthrough work in STEM, humanities, and social
+                sciences.
+              </p>
+            </li>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2965/2965358.png"
+                alt="Globe icon"
+              />
+              <p>
+                <strong>Study Abroad:</strong> Partnerships with 80 universities
+                across 40 countries for immersive global education.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 3: Success Stories -->
+      <div class="column reveal">
+        <div class="col-header blue">Student Success</div>
+        <div class="col-body">
+          <img
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400"
+            class="col-img"
+            alt="Student studying"
+          />
+          <p>
+            Marcus Chen, Class of 2024, combined his Computer Science major with
+            Entrepreneurship to launch a startup now valued at $12M, supported
+            by our Innovation Incubator.
+          </p>
+          <a href="#" class="see-more">Read Story</a>
+
+          <img
+            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400"
+            class="col-img"
+            alt="Graduation ceremony"
+          />
+          <p>
+            Our 2024 graduating class achieved a 96% employment rate within six
+            months, with alumni joining leading organizations like Google, NASA,
+            McKinsey, and the UN.
+          </p>
+          <a href="#" class="see-more">Alumni Network</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="faculty">
+      <h2 class="section-title reveal">What Our Community Says</h2>
+      <div class="testimonial-slider reveal">
+        <div class="testimonial active">
+          <div class="testimonial-avatar">👩‍🎓</div>
+          <p class="testimonial-text">
+            "The mentorship I received here completely transformed my career
+            trajectory. My professor connected me with a research opportunity at
+            CERN that changed my life."
+          </p>
+          <p class="testimonial-author">
+            — Dr. Sarah Williams, Physics '21, now at CERN
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-avatar">👨‍🏫</div>
+          <p class="testimonial-text">
+            "Teaching here means working with curious, driven students who
+            genuinely want to make an impact. The resources and support for
+            faculty are unparalleled."
+          </p>
+          <p class="testimonial-author">
+            — Prof. James Okonkwo, Department of Economics
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-avatar">👩‍💼</div>
+          <p class="testimonial-text">
+            "I came here as an international student nervous about fitting in.
+            The global student center made me feel at home immediately. Best
+            decision I ever made."
+          </p>
+          <p class="testimonial-author">
+            — Aisha Patel, MBA '23, now at Deloitte
+          </p>
+        </div>
+        <div class="slider-dots">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            EducationWebsite is a leading institution committed to accessible,
+            world-class education. Founded in 1998, we have grown into a diverse
+            community spanning 90 countries.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Admissions Portal</a></li>
+            <li><a href="#">Academic Calendar</a></li>
+            <li><a href="#">Campus Map</a></li>
+            <li><a href="#">Library Catalog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>
+            📍 450 University Avenue, Education City, EC 10012<br />
+            📞 (555) 123-4567<br />
+            ✉️ admissions@educationwebsite.edu
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p>Subscribe for campus news, event updates, and admission tips.</p>
+          <form onsubmit="subscribe(event)">
+            <input
+              type="text"
+              class="newsletter-input"
+              placeholder="Your name..."
+              required
+            />
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Your email..."
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 EducationWebsite. All rights reserved. |
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
