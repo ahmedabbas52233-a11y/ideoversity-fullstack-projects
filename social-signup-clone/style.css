@@ -8,6 +8,17 @@ body {
   background: #edf0f5;
 }
 
+/* Educational Banner */
+.edu-banner {
+  background: #ff9800;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
 .top-bar {
   background: #3b5998;
   border-bottom: 1px solid #133783;
