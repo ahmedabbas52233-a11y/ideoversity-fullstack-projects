@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Procedural 3D day-night ecosystem with real-time atmospheric simulation, spatial audio, and wildlife.">
+    <title>Elysium — 3D Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/sky-day-to-night/Style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-ring"></div>
+        <p>Generating terrain...</p>
+        <span class="loader-hint">Synthesizing atmosphere</span>
+    </div>
+
+    <!-- Entry Screen -->
+    <div class="start-screen" id="startScreen">
+        <div class="start-content">
+            <h1>Elysium</h1>
+            <p class="tagline">A living world that breathes with time</p>
+            <div class="features">
+                <span>🌄 Procedural Terrain</span>
+                <span>🎵 Spatial Audio</span>
+                <span>🔥 Real-time Lighting</span>
+                <span>🦌 Living Ecosystem</span>
+            </div>
+            <button id="enterBtn" type="button">Enter World</button>
+            <span class="hint">Headphones recommended for full immersion</span>
+        </div>
+    </div>
+
+    <!-- WebGL Canvas -->
+    <canvas id="glCanvas"></canvas>
+
+    <!-- In-World UI -->
+    <div class="ui-layer" id="uiLayer">
+        <!-- Top-left telemetry -->
+        <div class="telemetry-panel">
+            <div class="tel-card">
+                <span class="tel-label">Local Time</span>
+                <span class="tel-value" id="clock">06:00 AM</span>
+            </div>
+            <div class="tel-card">
+                <span class="tel-label">Temperature</span>
+                <span class="tel-value" id="temp">18°C</span>
+            </div>
+            <div class="tel-card">
+                <span class="tel-label">Wind Speed</span>
+                <span class="tel-value" id="wind">3.2 m/s</span>
+            </div>
+            <div class="tel-card">
+                <span class="tel-label">Atmospheric Phase</span>
+                <span class="tel-value" id="phase">Dawn</span>
+            </div>
+            <div class="tel-card">
+                <span class="tel-label">Elevation</span>
+                <span class="tel-value" id="elevation">245m</span>
+            </div>
+        </div>
+
+        <!-- Bottom control dock -->
+        <div class="control-dock">
+            <button class="ctrl-btn" id="playPause" type="button" aria-label="Pause time">⏸</button>
+            
+            <div class="slider-wrap">
+                <div class="time-markers">
+                    <span>🌅</span>
+                    <span>☀️</span>
+                    <span>🌇</span>
+                    <span>🌙</span>
+                </div>
+                <input type="range" id="timeSlider" min="0" max="24" step="0.01" value="6" aria-label="Time of day">
+            </div>
+            
+            <div class="speed-selector">
+                <button class="spd" data-speed="0" type="button">⏹</button>
+                <button class="spd active" data-speed="1" type="button">1×</button>
+                <button class="spd" data-speed="5" type="button">5×</button>
+                <button class="spd" data-speed="20" type="button">20×</button>
+            </div>
+        </div>
+
+        <!-- Mood text -->
+        <div class="mood-bubble" id="mood">The valley awakens under a rose sky</div>
+    </div>
+
+    <!-- Three.js from reliable CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Post-processing -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    
+    <script src="/sky-day-to-night/Script.js"></script>
+</body>
+</html>
