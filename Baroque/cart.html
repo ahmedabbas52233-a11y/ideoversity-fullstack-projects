@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Bag - BAROQUE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
+
+  <div class="header" id="header">
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <div class="nav-center" id="navMenu">
+<a href="index.html" class="">New In</a>
+<a href="shop.html" class="">Ready to Wear</a>
+<a href="shop.html?cat=unstitched" class="">Unstitched</a>
+<a href="shop.html?cat=formals" class="">Formals</a>
+
+    </div>
+    <a href="index.html" class="logo">Baroque</a>
+    <div class="header-icons">
+      <a href="shop.html" title="Search">Search</a>
+      <a href="account.html" title="Account">Account</a>
+      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+    </div>
+  </div>
+
+  <div class="cart-container">
+    <div class="cart-header">
+      <h1>Shopping Bag</h1>
+    </div>
+    <div class="cart-layout" id="cartLayout">
+      <div class="cart-items" id="cartItems">
+        <!-- Cart items via JS -->
+      </div>
+      <div class="cart-summary" id="cartSummary">
+        <!-- Summary via JS -->
+      </div>
+    </div>
+    <div class="empty-cart" id="emptyCart" style="display:none;">
+      <h2>Your bag is empty</h2>
+      <p>Looks like you haven't added anything yet.</p>
+      <a href="shop.html" class="hero-btn" style="border-color:#000;color:#000;margin-top:20px;">CONTINUE SHOPPING</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="about.html">Who We Are</a>
+        <a href="about.html">Our Responsibility</a>
+        <a href="about.html">Careers</a>
+        <p class="footer-contact-text">
+          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">Dispatch Timeline</a>
+        <a href="about.html">Exchange Information</a>
+        <p class="footer-service-text">Email: info@baroque.pk</p>
+        <p class="footer-service-text">UAN 111-302-302</p>
+        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <a href="about.html">Privacy Policy</a>
+        <a href="about.html">Refund Policy</a>
+        <a href="about.html">Shipping Policy</a>
+        <a href="about.html">Terms of Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="footer-form" onsubmit="subscribeFooter(event)">
+          <input type="email" placeholder="Your email" title="Email for newsletter" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 - BAROQUE</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+  <script>initCart();</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - BAROQUE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
+
+  <div class="header" id="header">
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <div class="nav-center" id="navMenu">
+<a href="index.html" class="">New In</a>
+<a href="shop.html" class="">Ready to Wear</a>
+<a href="shop.html?cat=unstitched" class="">Unstitched</a>
+<a href="shop.html?cat=formals" class="">Formals</a>
+
+    </div>
+    <a href="index.html" class="logo">Baroque</a>
+    <div class="header-icons">
+      <a href="shop.html" title="Search">Search</a>
+      <a href="account.html" title="Account">Account</a>
+      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <div class="page-header">
+      <h1>About Baroque</h1>
+      <p>Redefining Pakistani fashion since 2010</p>
+    </div>
+
+    <div class="about-content">
+      <img src="https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=1000" alt="About Baroque" />
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Baroque was founded with a vision to bring luxury Pakistani fashion to women who appreciate elegance, craftsmanship, and timeless design. What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses.</p>
+        <p>Our collections blend traditional techniques with contemporary aesthetics, creating pieces that honor our heritage while embracing modern style. Every garment is crafted with meticulous attention to detail, from the selection of premium fabrics to the final stitch.</p>
+        <p>Today, Baroque stands as a symbol of sophistication in South Asian fashion, with a presence across Pakistan and a growing international clientele who seek authentic, high-quality Pakistani attire.</p>
+      </div>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>CRAFTSMANSHIP</h3>
+        <p>Every piece is handcrafted by skilled artisans using time-honored techniques passed down through generations.</p>
+      </div>
+      <div class="value-card">
+        <h3>QUALITY</h3>
+        <p>We source only the finest fabrics and materials, ensuring each garment meets our exacting standards.</p>
+      </div>
+      <div class="value-card">
+        <h3>HERITAGE</h3>
+        <p>Our designs celebrate Pakistani cultural heritage while embracing contemporary global fashion trends.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="about.html">Who We Are</a>
+        <a href="about.html">Our Responsibility</a>
+        <a href="about.html">Careers</a>
+        <p class="footer-contact-text">
+          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">Dispatch Timeline</a>
+        <a href="about.html">Exchange Information</a>
+        <p class="footer-service-text">Email: info@baroque.pk</p>
+        <p class="footer-service-text">UAN 111-302-302</p>
+        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <a href="about.html">Privacy Policy</a>
+        <a href="about.html">Refund Policy</a>
+        <a href="about.html">Shipping Policy</a>
+        <a href="about.html">Terms of Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="footer-form" onsubmit="subscribeFooter(event)">
+          <input type="email" placeholder="Your email" title="Email for newsletter" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 - BAROQUE</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

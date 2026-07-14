@@ -1,200 +1,163 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BAROQUE - Pakistani Fashion Brand</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="popup-overlay" id="popup">
-      <div class="popup">
-        <button
-          class="popup-close"
-          onclick="closePopup()"
-          title="Close newsletter popup"
-        >
-          &times;
-        </button>
-        <h2>Join Our Newsletter</h2>
-        <p>
-          Subscribe to receive updates, access to exclusive deals, and more.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAROQUE - Pakistani Fashion Brand</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup()" title="Close newsletter popup">&times;</button>
+      <h2>Join Our Newsletter</h2>
+      <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+      <form class="popup-form" onsubmit="subscribePopup(event)">
+        <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
+
+  <div class="header" id="header">
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <div class="nav-center" id="navMenu">
+<a href="index.html" class="active">New In</a>
+<a href="shop.html" class="">Ready to Wear</a>
+<a href="shop.html?cat=unstitched" class="">Unstitched</a>
+<a href="shop.html?cat=formals" class="">Formals</a>
+
+    </div>
+    <a href="index.html" class="logo">Baroque</a>
+    <div class="header-icons">
+      <a href="shop.html" title="Search">Search</a>
+      <a href="account.html" title="Account">Account</a>
+      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner91_38cb943e-fb76-415b-83a1-ae37c553c60e.jpg?v=1781700203&width=2000" alt="EID LAWN 26 Fashion Campaign" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2>Own Your New Look</h2>
+      <h1>EID LAWN 26</h1>
+      <div class="hero-buttons">
+        <a href="shop.html?cat=unstitched" class="hero-btn">UNSTITCHED</a>
+        <a href="shop.html?cat=stitched" class="hero-btn">STITCHED</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>EID LAWN 26</h2></div>
+  <div class="dual-section">
+    <div class="dual-row">
+      <div class="dual-item" onclick="location.href='shop.html?cat=unstitched'">
+        <img src="https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=1000" alt="Unstitched Collection" />
+        <div class="dual-overlay"></div>
+        <div class="dual-content">
+          <a href="shop.html?cat=unstitched" class="dual-btn">UNSTITCHED</a>
+        </div>
+      </div>
+      <div class="dual-item" onclick="location.href='shop.html?cat=stitched'">
+        <img src="https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=1000" alt="Stitched Collection" />
+        <div class="dual-overlay"></div>
+        <div class="dual-content">
+          <a href="shop.html?cat=stitched" class="dual-btn">STITCHED</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>READY TO WEAR</h2></div>
+  <div class="single-section">
+    <div class="single-item" onclick="location.href='shop.html'">
+      <img src="https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=2000" alt="Ready to Wear Collection" />
+      <div class="single-overlay"></div>
+      <div class="corner-buttons left">
+        <a href="shop.html?cat=summer" class="corner-btn">SUMMER</a>
+        <a href="shop.html" class="corner-btn">SHOP ALL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Chantelle Collection</h2></div>
+  <div class="dual-section">
+    <div class="dual-row">
+      <div class="dual-item" onclick="location.href='shop.html?cat=chantelle'">
+        <img src="https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=1000" alt="Chantelle Unstitched" />
+        <div class="dual-overlay"></div>
+        <div class="dual-content">
+          <a href="shop.html?cat=chantelle" class="dual-btn">UNSTITCHED</a>
+        </div>
+      </div>
+      <div class="dual-item" onclick="location.href='shop.html?cat=chantelle-stitched'">
+        <img src="https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=1000" alt="Chantelle Stitched" />
+        <div class="dual-overlay"></div>
+        <div class="dual-content">
+          <a href="shop.html?cat=chantelle-stitched" class="dual-btn">STITCHED</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>ESSENTIALS</h2></div>
+  <div class="single-section">
+    <div class="single-item" onclick="location.href='shop.html?cat=essentials'">
+      <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=2000" alt="Essentials Collection" />
+      <div class="single-overlay"></div>
+      <div class="corner-buttons right">
+        <a href="shop.html?cat=ensembles" class="corner-btn">ENSEMBLES</a>
+        <a href="shop.html?cat=dupattas" class="corner-btn">DUPATTAS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="about.html">Who We Are</a>
+        <a href="about.html">Our Responsibility</a>
+        <a href="about.html">Careers</a>
+        <p class="footer-contact-text">
+          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
         </p>
-        <form class="popup-form" onsubmit="subscribePopup(event)">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            id="popupEmail"
-            title="Email address for newsletter"
-            required
-          />
-          <button type="submit">Subscribe</button>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">Dispatch Timeline</a>
+        <a href="about.html">Exchange Information</a>
+        <p class="footer-service-text">Email: info@baroque.pk</p>
+        <p class="footer-service-text">UAN 111-302-302</p>
+        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <a href="about.html">Privacy Policy</a>
+        <a href="about.html">Refund Policy</a>
+        <a href="about.html">Shipping Policy</a>
+        <a href="about.html">Terms of Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="footer-form" onsubmit="subscribeFooter(event)">
+          <input type="email" placeholder="Your email" title="Email for newsletter" required>
+          <button type="submit">Join</button>
         </form>
       </div>
     </div>
-
-    <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
-
-    <div class="header" id="header">
-      <div class="nav-center" id="navMenu">
-        <a href="#">New In</a>
-        <a href="#">Ready to Wear</a>
-        <a href="#">Unstitched</a>
-        <a href="#">Formals</a>
-      </div>
-      <a href="#" class="logo">Baroque</a>
-      <div class="header-icons">
-        <a href="#" title="Search">Search</a>
-        <a href="#" title="Account">Account</a>
-        <a href="#" title="Wishlist">Wishlist</a>
-        <a href="#" title="Shopping Bag">Bag</a>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 - BAROQUE</p>
     </div>
+  </div>
 
-    <div class="hero">
-      <img
-        src="https://baroque.pk/cdn/shop/files/MAin_BAnner91_38cb943e-fb76-415b-83a1-ae37c553c60e.jpg?v=1781700203&width=2000"
-        alt="EID LAWN 26 Fashion Campaign"
-      />
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h2>Own Your New Look</h2>
-        <h1>EID LAWN 26</h1>
-        <div class="hero-buttons">
-          <a href="#" class="hero-btn">UNSTITCHED</a>
-          <a href="#" class="hero-btn">STITCHED</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-heading"><h2>EID LAWN 26</h2></div>
-    <div class="dual-section">
-      <div class="dual-row">
-        <div class="dual-item">
-          <img
-            src="https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=1000"
-            alt="Unstitched Collection"
-          />
-          <div class="dual-overlay"></div>
-          <div class="dual-content">
-            <a href="#" class="dual-btn">UNSTITCHED</a>
-          </div>
-        </div>
-        <div class="dual-item">
-          <img
-            src="https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=1000"
-            alt="Stitched Collection"
-          />
-          <div class="dual-overlay"></div>
-          <div class="dual-content">
-            <a href="#" class="dual-btn">STITCHED</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-heading"><h2>READY TO WEAR</h2></div>
-    <div class="single-section">
-      <div class="single-item">
-        <img
-          src="https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=2000"
-          alt="Ready to Wear Collection"
-        />
-        <div class="single-overlay"></div>
-        <div class="corner-buttons left">
-          <a href="#" class="corner-btn">SUMMER</a>
-          <a href="#" class="corner-btn">SHOP ALL</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-heading"><h2>Chantelle Collection</h2></div>
-    <div class="dual-section">
-      <div class="dual-row">
-        <div class="dual-item">
-          <img
-            src="https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=1000"
-            alt="Chantelle Unstitched"
-          />
-          <div class="dual-overlay"></div>
-          <div class="dual-content">
-            <a href="#" class="dual-btn">UNSTITCHED</a>
-          </div>
-        </div>
-        <div class="dual-item">
-          <img
-            src="https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=1000"
-            alt="Chantelle Stitched"
-          />
-          <div class="dual-overlay"></div>
-          <div class="dual-content">
-            <a href="#" class="dual-btn">STITCHED</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-heading"><h2>ESSENTIALS</h2></div>
-    <div class="single-section">
-      <div class="single-item">
-        <img
-          src="https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=2000"
-          alt="Essentials Collection"
-        />
-        <div class="single-overlay"></div>
-        <div class="corner-buttons right">
-          <a href="#" class="corner-btn">ENSEMBLES</a>
-          <a href="#" class="corner-btn">DUPATTAS</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>About</h4>
-          <a href="#">Who We Are</a>
-          <a href="#">Our Responsibility</a>
-          <a href="#">Careers</a>
-          <p class="footer-contact-text">
-            Our Shop: First Floor, Dolmen Mall,<br />Shop No F-06, A Block DHA
-            Phase 6, Lahore
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Customer Service</h4>
-          <a href="#">Contact Us</a>
-          <a href="#">Dispatch Timeline</a>
-          <a href="#">Exchange Information</a>
-          <p class="footer-service-text">Email: info@baroque.pk</p>
-          <p class="footer-service-text">UAN 111-302-302</p>
-          <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
-        </div>
-        <div class="footer-col">
-          <h4>Policies</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Refund Policy</a>
-          <a href="#">Shipping Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <form class="footer-form" onsubmit="subscribeFooter(event)">
-            <input
-              type="email"
-              placeholder="Your email"
-              title="Email for newsletter"
-              required
-            />
-            <button type="submit">Join</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 - BAROQUE</p>
-      </div>
-    </div>
-
-    <script src="./script.js"></script>
-  </body>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
 </html>

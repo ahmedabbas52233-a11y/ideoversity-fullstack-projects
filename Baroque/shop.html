@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - BAROQUE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
+
+  <div class="header" id="header">
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <div class="nav-center" id="navMenu">
+<a href="index.html" class="">New In</a>
+<a href="shop.html" class="active">Ready to Wear</a>
+<a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+<a href="shop.html?cat=formals" class="active">Formals</a>
+
+    </div>
+    <a href="index.html" class="logo">Baroque</a>
+    <div class="header-icons">
+      <a href="shop.html" title="Search">Search</a>
+      <a href="account.html" title="Account">Account</a>
+      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+    </div>
+  </div>
+
+  <div class="shop-hero">
+    <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner91_38cb943e-fb76-415b-83a1-ae37c553c60e.jpg?v=1781700203&width=2000" alt="Shop Collection" />
+    <div class="shop-hero-content">
+      <h1 id="shopTitle">All Collections</h1>
+      <p>Discover the finest Pakistani fashion</p>
+    </div>
+  </div>
+
+  <div class="shop-container">
+    <aside class="shop-sidebar">
+      <div class="sidebar-section">
+        <h3>Categories</h3>
+        <label class="filter-option"><input type="checkbox" value="unstitched" onchange="filterProducts()"> Unstitched</label>
+        <label class="filter-option"><input type="checkbox" value="stitched" onchange="filterProducts()"> Stitched</label>
+        <label class="filter-option"><input type="checkbox" value="formals" onchange="filterProducts()"> Formals</label>
+        <label class="filter-option"><input type="checkbox" value="summer" onchange="filterProducts()"> Summer</label>
+        <label class="filter-option"><input type="checkbox" value="chantelle" onchange="filterProducts()"> Chantelle</label>
+      </div>
+      <div class="sidebar-section">
+        <h3>Price Range</h3>
+        <div class="price-range">
+          <input type="number" placeholder="Min" id="priceMin" onchange="filterProducts()">
+          <span>—</span>
+          <input type="number" placeholder="Max" id="priceMax" onchange="filterProducts()">
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <h3>Availability</h3>
+        <label class="filter-option"><input type="checkbox" checked> In Stock</label>
+        <label class="filter-option"><input type="checkbox"> Out of Stock</label>
+      </div>
+    </aside>
+
+    <main class="shop-main">
+      <div class="shop-toolbar">
+        <span id="resultCount">Showing 8 products</span>
+        <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="newest">Newest First</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Products injected via JS -->
+      </div>
+    </main>
+  </div>
+
+  <div class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="about.html">Who We Are</a>
+        <a href="about.html">Our Responsibility</a>
+        <a href="about.html">Careers</a>
+        <p class="footer-contact-text">
+          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">Dispatch Timeline</a>
+        <a href="about.html">Exchange Information</a>
+        <p class="footer-service-text">Email: info@baroque.pk</p>
+        <p class="footer-service-text">UAN 111-302-302</p>
+        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <a href="about.html">Privacy Policy</a>
+        <a href="about.html">Refund Policy</a>
+        <a href="about.html">Shipping Policy</a>
+        <a href="about.html">Terms of Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="footer-form" onsubmit="subscribeFooter(event)">
+          <input type="email" placeholder="Your email" title="Email for newsletter" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 - BAROQUE</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+  <script>initShop();</script>
+</body>
+</html>
