@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View product details at Baroque - Premium Pakistani Fashion." />
   <title>Product - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
@@ -13,32 +15,64 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="active">New In</a>
+        <a href="shop.html" class="active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
   </div>
 
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <a href="shop.html">Shop</a> <span>/</span> <span class="current" id="breadcrumbProduct">Product</span>
+  </div>
+
   <div class="product-detail-container" id="productDetail">
     <div class="product-gallery">
-      <div class="gallery-thumbs" id="galleryThumbs">
-        <!-- Thumbs via JS -->
-      </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
       <div class="gallery-main">
         <img id="mainImage" src="" alt="Product Image" />
       </div>
     </div>
-    <div class="product-info" id="productInfo">
-      <!-- Product info via JS -->
+    <div class="product-info" id="productInfo"></div>
+  </div>
+
+  <div class="related-section" id="relatedProducts"></div>
+  <div class="recently-viewed" id="recentlyViewed"></div>
+
+  <!-- Size Guide Modal -->
+  <div class="modal-overlay" id="sizeGuideModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeSizeGuide()">&times;</button>
+      <h2>Size Guide</h2>
+      <p style="font-size:14px;color:#666;margin-bottom:15px;">All measurements are in inches.</p>
+      <table class="size-table">
+        <thead>
+          <tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th><th>Length</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>XS</td><td>32</td><td>26</td><td>34</td><td>38</td></tr>
+          <tr><td>S</td><td>34</td><td>28</td><td>36</td><td>39</td></tr>
+          <tr><td>M</td><td>36</td><td>30</td><td>38</td><td>40</td></tr>
+          <tr><td>L</td><td>38</td><td>32</td><td>40</td><td>41</td></tr>
+          <tr><td>XL</td><td>40</td><td>34</td><td>42</td><td>42</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -77,11 +111,18 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
   <script>initProduct();</script>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shop Baroque collections - Eid Lawn, Ready to Wear, Unstitched, Formals & more." />
-  <title>Shop - BAROQUE</title>
+  <meta name="description" content="Your wishlist at Baroque. Save your favorite items." />
+  <title>Wishlist - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
@@ -39,56 +39,19 @@
   </div>
 
   <div class="breadcrumbs">
-    <a href="index.html">Home</a> <span>/</span> <span class="current">Shop</span>
+    <a href="index.html">Home</a> <span>/</span> <span class="current">Wishlist</span>
   </div>
 
-  <div class="shop-hero">
-    <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner91_38cb943e-fb76-415b-83a1-ae37c553c60e.jpg?v=1781700203&width=2000" alt="Shop Collection" />
-    <div class="shop-hero-content">
-      <h1 id="shopTitle">All Collections</h1>
-      <p>Discover the finest Pakistani fashion</p>
+  <div class="wishlist-container">
+    <div class="wishlist-header">
+      <h1>My Wishlist</h1>
     </div>
-  </div>
-
-  <div class="shop-container">
-    <aside class="shop-sidebar">
-      <div class="sidebar-section">
-        <h3>Categories</h3>
-        <label class="filter-option"><input type="checkbox" value="unstitched" onchange="filterProducts()"> Unstitched</label>
-        <label class="filter-option"><input type="checkbox" value="stitched" onchange="filterProducts()"> Stitched</label>
-        <label class="filter-option"><input type="checkbox" value="formals" onchange="filterProducts()"> Formals</label>
-        <label class="filter-option"><input type="checkbox" value="summer" onchange="filterProducts()"> Summer</label>
-        <label class="filter-option"><input type="checkbox" value="chantelle" onchange="filterProducts()"> Chantelle</label>
-      </div>
-      <div class="sidebar-section">
-        <h3>Price Range</h3>
-        <div class="price-range">
-          <input type="number" placeholder="Min" id="priceMin" onchange="filterProducts()">
-          <span>—</span>
-          <input type="number" placeholder="Max" id="priceMax" onchange="filterProducts()">
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <h3>Availability</h3>
-        <label class="filter-option"><input type="checkbox" checked> In Stock</label>
-        <label class="filter-option"><input type="checkbox"> Out of Stock</label>
-      </div>
-    </aside>
-
-    <main class="shop-main">
-      <div class="shop-toolbar">
-        <span id="resultCount">Showing 8 products</span>
-        <select class="sort-select" id="sortSelect" onchange="sortProducts()">
-          <option value="featured">Featured</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
-          <option value="newest">Newest First</option>
-        </select>
-      </div>
-      <div class="product-grid" id="productGrid">
-        <!-- Products injected via JS -->
-      </div>
-    </main>
+    <div class="wishlist-grid" id="wishlistGrid"></div>
+    <div class="wishlist-empty" id="wishlistEmpty" style="display:none;">
+      <h2>Your wishlist is empty</h2>
+      <p>Save your favorite items here.</p>
+      <a href="shop.html" class="hero-btn" style="border-color:#000;color:#000;margin-top:20px;">SHOP NOW</a>
+    </div>
   </div>
 
   <div class="footer">
@@ -140,6 +103,6 @@
   <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
-  <script>initShop();</script>
+  <script>initWishlist();</script>
 </body>
 </html>

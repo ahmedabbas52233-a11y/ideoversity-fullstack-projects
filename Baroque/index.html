@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Baroque - Premium Pakistani Fashion Brand. Shop Eid Lawn, Ready to Wear, Unstitched & Formal collections." />
+  <meta property="og:title" content="BAROQUE - Pakistani Fashion Brand" />
+  <meta property="og:description" content="Discover luxury Pakistani fashion. Eid Lawn 26, Chantelle, Essentials & more." />
+  <meta property="og:type" content="website" />
   <title>BAROQUE - Pakistani Fashion Brand</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
   <div class="popup-overlay" id="popup">
     <div class="popup">
       <button class="popup-close" onclick="closePopup()" title="Close newsletter popup">&times;</button>
-      <h2>Join Our Newsletter</h2>
-      <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
-      <form class="popup-form" onsubmit="subscribePopup(event)">
-        <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" required />
-        <button type="submit">Subscribe</button>
-      </form>
+      <div class="popup-form">
+        <h2>Join Our Newsletter</h2>
+        <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+        <form class="popup-form" onsubmit="subscribePopup(event)">
+          <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="popup-success">
+        <h2>Welcome!</h2>
+        <p>Your 10% OFF code is <strong>WELCOME10</strong></p>
+        <p style="font-size:13px;color:#666;margin-top:10px;">Check your email for confirmation.</p>
+      </div>
     </div>
   </div>
 
@@ -25,19 +37,27 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="active">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="">New In</a>
+        <a href="shop.html" class="">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="">Unstitched</a>
+        <a href="shop.html?cat=formals" class="">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
 
   <div class="hero">
@@ -71,6 +91,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="section-heading"><h2>New Arrivals</h2><p>Shop the latest from our Eid Lawn 26 collection</p></div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px 40px;">
+    <div class="product-grid" id="newArrivals"></div>
   </div>
 
   <div class="section-heading"><h2>READY TO WEAR</h2></div>
@@ -152,12 +177,25 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
+  <script>
+    // Render new arrivals on homepage
+    const newArrivals = products.slice(0, 4);
+    document.getElementById('newArrivals').innerHTML = newArrivals.map(p => renderProductCard(p)).join('');
+    updateWishlistIcons();
+  </script>
 </body>
 </html>

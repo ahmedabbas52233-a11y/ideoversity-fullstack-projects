@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Baroque - Customer service, store location, and inquiries." />
   <title>Contact Us - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
@@ -13,19 +15,31 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="active">New In</a>
+        <a href="shop.html" class="active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span class="current">Contact</span>
   </div>
 
   <div class="page-container">
@@ -41,6 +55,7 @@
         <p><strong>Visit Our Flagship Store</strong><br>First Floor, Dolmen Mall<br>Shop No F-06, A Block<br>DHA Phase 6, Lahore<br>Pakistan</p>
         <p><strong>Business Hours</strong><br>Monday - Saturday: 11:00 AM - 10:00 PM<br>Sunday: 12:00 PM - 10:00 PM</p>
         <p><strong>Dispatch & Delivery</strong><br>We dispatch orders within 2-3 business days.<br>Free shipping on orders over PKR 5,000.</p>
+        <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.5!2d74.45!3d31.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919018a8ea548c1%3A0x4a52db69c2c814f!2sDolmen%20Mall%20Lahore!5e0!3m2!1sen!2s!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="contact-form-wrapper">
         <h2 style="font-size:20px;font-weight:300;letter-spacing:3px;margin-bottom:25px;">Send a Message</h2>
@@ -102,11 +117,18 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
 </body>

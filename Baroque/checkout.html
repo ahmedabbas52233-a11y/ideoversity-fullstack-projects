@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Secure checkout at Baroque. Complete your order." />
   <title>Checkout - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
@@ -13,19 +15,31 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="active">New In</a>
+        <a href="shop.html" class="active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <a href="shop.html">Shop</a> <span>/</span> <a href="cart.html">Bag</a> <span>/</span> <span class="current">Checkout</span>
   </div>
 
   <div class="checkout-container">
@@ -87,31 +101,63 @@
           </div>
         </div>
         <div class="checkout-section">
+          <h2>Shipping Method</h2>
+          <div class="shipping-options">
+            <label class="shipping-option active" data-ship="standard">
+              <input type="radio" name="shipping" value="standard" checked>
+              <span>Standard Delivery (3-5 days)</span>
+              <span class="price" id="shipPriceStandard">PKR 250</span>
+            </label>
+            <label class="shipping-option" data-ship="express">
+              <input type="radio" name="shipping" value="express">
+              <span>Express Delivery (1-2 days)</span>
+              <span class="price">PKR 500</span>
+            </label>
+          </div>
+        </div>
+        <div class="checkout-section">
           <h2>Payment Method</h2>
-          <div class="form-group">
-            <label>Card Number</label>
-            <input type="text" placeholder="0000 0000 0000 0000" required>
+          <div class="payment-methods">
+            <label class="payment-method active" data-method="card">
+              <input type="radio" name="payment" value="card" checked>
+              <span>Credit / Debit Card</span>
+              <span class="method-desc">Visa, Mastercard, Payoneer</span>
+            </label>
+            <label class="payment-method" data-method="cod">
+              <input type="radio" name="payment" value="cod">
+              <span>Cash on Delivery</span>
+              <span class="method-desc">Pay when you receive</span>
+            </label>
+            <label class="payment-method" data-method="bank">
+              <input type="radio" name="payment" value="bank">
+              <span>Bank Transfer</span>
+              <span class="method-desc">HBL, Meezan, Allied Bank</span>
+            </label>
           </div>
-          <div class="form-row">
+          <div id="cardFields">
             <div class="form-group">
-              <label>Expiry Date</label>
-              <input type="text" placeholder="MM/YY" required>
+              <label>Card Number</label>
+              <input type="text" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM/YY">
+              </div>
+              <div class="form-group">
+                <label>CVV</label>
+                <input type="text" placeholder="123">
+              </div>
             </div>
             <div class="form-group">
-              <label>CVV</label>
-              <input type="text" placeholder="123" required>
+              <label>Name on Card</label>
+              <input type="text">
             </div>
-          </div>
-          <div class="form-group">
-            <label>Name on Card</label>
-            <input type="text" required>
           </div>
         </div>
         <button class="checkout-btn" onclick="placeOrder()">Complete Order</button>
       </div>
-      <div class="checkout-order-summary" id="checkoutSummary">
-        <!-- Order summary via JS -->
-      </div>
+      <div class="checkout-order-summary" id="checkoutSummary"></div>
     </div>
   </div>
 
@@ -150,11 +196,18 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
   <script>initCheckout();</script>

@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in or create an account at Baroque." />
   <title>Account - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
@@ -13,21 +15,34 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="active">New In</a>
+        <a href="shop.html" class="active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
   </div>
 
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span class="current">Account</span>
+  </div>
+
+  <!-- Login/Register Forms -->
   <div class="account-container">
     <div class="account-tabs">
       <button class="account-tab active" onclick="switchTab('login')">Login</button>
@@ -68,6 +83,27 @@
     </form>
   </div>
 
+  <!-- Dashboard (shown when logged in) -->
+  <div class="account-dashboard" id="accountDashboard">
+    <div class="account-sidebar">
+      <h3>My Account</h3>
+      <a href="#" class="active">Dashboard</a>
+      <a href="#" onclick="renderOrders()">My Orders</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="#">Addresses</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+    <div class="account-main">
+      <h2>My Orders</h2>
+      <table class="order-table">
+        <thead>
+          <tr><th>Order #</th><th>Date</th><th>Items</th><th>Status</th><th>Total</th></tr>
+        </thead>
+        <tbody id="ordersTable"></tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="footer">
     <div class="footer-grid">
       <div class="footer-col">
@@ -103,12 +139,20 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
+  <script>initAccount();</script>
 </body>
 </html>

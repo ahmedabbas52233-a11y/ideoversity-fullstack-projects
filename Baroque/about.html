@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about Baroque - Premium Pakistani Fashion Brand since 2010." />
   <title>About Us - BAROQUE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
@@ -13,19 +15,31 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-<a href="index.html" class="">New In</a>
-<a href="shop.html" class="">Ready to Wear</a>
-<a href="shop.html?cat=unstitched" class="">Unstitched</a>
-<a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="active">New In</a>
+        <a href="shop.html" class="active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <a href="shop.html" title="Search">Search</a>
+      <button onclick="openSearch()" title="Search">Search</button>
       <a href="account.html" title="Account">Account</a>
-      <a href="account.html" title="Wishlist">Wishlist</a>
+      <a href="wishlist.html" title="Wishlist">Wishlist</a>
       <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" onclick="closeSearch()">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span class="current">About</span>
   </div>
 
   <div class="page-container">
@@ -41,6 +55,35 @@
         <p>Baroque was founded with a vision to bring luxury Pakistani fashion to women who appreciate elegance, craftsmanship, and timeless design. What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses.</p>
         <p>Our collections blend traditional techniques with contemporary aesthetics, creating pieces that honor our heritage while embracing modern style. Every garment is crafted with meticulous attention to detail, from the selection of premium fabrics to the final stitch.</p>
         <p>Today, Baroque stands as a symbol of sophistication in South Asian fashion, with a presence across Pakistan and a growing international clientele who seek authentic, high-quality Pakistani attire.</p>
+      </div>
+    </div>
+
+    <div class="section-heading"><h2>Our Journey</h2></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">2010</div>
+        <h3>The Beginning</h3>
+        <p>Baroque opens its first atelier in Lahore with a small team of master artisans.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2014</div>
+        <h3>First Flagship Store</h3>
+        <p>Launch of the Dolmen Mall flagship store, establishing Baroque as a premium retail brand.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2018</div>
+        <h3>Digital Expansion</h3>
+        <p>Baroque.pk goes live, bringing our collections to customers across Pakistan and beyond.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2022</div>
+        <h3>International Reach</h3>
+        <p>Baroque begins shipping to the UK, USA, UAE, and Canada, serving the global diaspora.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2026</div>
+        <h3>Eid Lawn 26</h3>
+        <p>Our biggest collection yet, celebrating 16 years of Pakistani fashion excellence.</p>
       </div>
     </div>
 
@@ -95,11 +138,18 @@
         </form>
       </div>
     </div>
+    <div class="footer-social">
+      <a href="#" title="Instagram">&#9733;</a>
+      <a href="#" title="Facebook">&#9733;</a>
+      <a href="#" title="Pinterest">&#9733;</a>
+      <a href="#" title="YouTube">&#9733;</a>
+    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
 </body>
