@@ -45,8 +45,8 @@
     <p>A confirmation email has been sent to your inbox.</p>
     <div class="order-number" id="orderNumber">Order #BAROQUE-XXXXXX</div>
     <div class="success-actions">
-      <a href="shop.html" class="hero-btn" style="border-color:#000;color:#000;">CONTINUE SHOPPING</a>
-      <a href="account.html" class="hero-btn" style="background:#000;color:#fff;">VIEW ORDERS</a>
+      <a href="shop.html" class="hero-btn-dark">CONTINUE SHOPPING</a>
+      <a href="account.html" class="hero-btn-solid">VIEW ORDERS</a>
     </div>
   </div>
 
@@ -100,8 +100,8 @@
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const orderId = params.get('order');
+    var params = new URLSearchParams(window.location.search);
+    var orderId = params.get('order');
     if (orderId) document.getElementById('orderNumber').textContent = 'Order #' + orderId;
   </script>
 </body>

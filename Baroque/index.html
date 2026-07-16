@@ -27,7 +27,7 @@
       <div class="popup-success">
         <h2>Welcome!</h2>
         <p>Your 10% OFF code is <strong>WELCOME10</strong></p>
-        <p style="font-size:13px;color:#666;margin-top:10px;">Check your email for confirmation.</p>
+        <p class="check-email">Check your email for confirmation.</p>
       </div>
     </div>
   </div>
@@ -93,8 +93,11 @@
     </div>
   </div>
 
-  <div class="section-heading"><h2>New Arrivals</h2><p>Shop the latest from our Eid Lawn 26 collection</p></div>
-  <div style="max-width:1200px;margin:0 auto;padding:0 20px 40px;">
+  <div class="section-heading">
+    <h2>New Arrivals</h2>
+    <p>Shop the latest from our Eid Lawn 26 collection</p>
+  </div>
+  <div class="new-arrivals-section">
     <div class="product-grid" id="newArrivals"></div>
   </div>
 
@@ -192,9 +195,8 @@
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
   <script>
-    // Render new arrivals on homepage
-    const newArrivals = products.slice(0, 4);
-    document.getElementById('newArrivals').innerHTML = newArrivals.map(p => renderProductCard(p)).join('');
+    var newArrivals = products.slice(0, 4);
+    document.getElementById('newArrivals').innerHTML = newArrivals.map(function(p) { return renderProductCard(p); }).join('');
     updateWishlistIcons();
   </script>
 </body>

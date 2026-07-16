@@ -219,7 +219,7 @@ function renderRecentlyViewed() {
   const recentProducts = recent.map(id => products.find(p => p.id === id)).filter(Boolean);
   if (recentProducts.length < 2) { container.style.display = 'none'; return; }
   container.style.display = 'block';
-  container.innerHTML = `<h2>Recently Viewed</h2><div class="recently-scroll">${recentProducts.map(p => renderProductCard(p)).join('')}</div>`;
+  container.innerHTML = '<h2>Recently Viewed</h2><div class="recently-scroll">' + recentProducts.map(p => renderProductCard(p)).join('') + '</div>';
   updateWishlistIcons();
 }
 
@@ -286,15 +286,12 @@ function doSearch(query) {
     results.innerHTML = '<div class="search-no-results">No products found. Try a different search.</div>';
     return;
   }
-  results.innerHTML = matches.map(p => `
-    <div class="search-result-item" onclick="location.href='product.html?id=${p.id}'">
-      <img src="${p.image}" alt="${p.name}">
-      <div>
-        <h4>${p.name}</h4>
-        <div class="price">PKR ${p.price.toLocaleString()}</div>
-      </div>
-    </div>
-  `).join('');
+  results.innerHTML = matches.map(p =>
+    '<div class="search-result-item" onclick="location.href='product.html?id=' + p.id + ''">' +
+    '<img src="' + p.image + '" alt="' + p.name + '">' +
+    '<div><h4>' + p.name + '</h4><div class="price">PKR ' + p.price.toLocaleString() + '</div></div>' +
+    '</div>'
+  ).join('');
 }
 
 // ===================== MOBILE MENU =====================
@@ -329,20 +326,18 @@ function scrollToTop() {
 // ===================== PRODUCT CARD RENDERER =====================
 function renderProductCard(p) {
   const isWished = getWishlist().includes(p.id);
-  return `
-    <div class="product-card" onclick="location.href='product.html?id=${p.id}'">
-      <div class="product-card-img">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
-        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-        <button class="product-wishlist ${isWished ? 'active' : ''}" onclick="event.stopPropagation(); toggleWishlist(${p.id}, this)">${isWished ? '&#10084;' : '&#9825;'}</button>
-        <div class="quick-add" onclick="event.stopPropagation(); quickAdd(${p.id})">Quick Add</div>
-      </div>
-      <div class="product-card-info">
-        <h3>${p.name}</h3>
-        <div class="price">PKR ${p.price.toLocaleString()}${p.oldPrice ? `<span class="old">PKR ${p.oldPrice.toLocaleString()}</span>` : ''}</div>
-      </div>
-    </div>
-  `;
+  return '<div class="product-card" onclick="location.href='product.html?id=' + p.id + ''">' +
+    '<div class="product-card-img">' +
+    '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">' +
+    (p.badge ? '<span class="product-badge">' + p.badge + '</span>' : '') +
+    '<button class="product-wishlist ' + (isWished ? 'active' : '') + '" onclick="event.stopPropagation(); toggleWishlist(' + p.id + ', this)">' + (isWished ? '&#10084;' : '&#9825;') + '</button>' +
+    '<div class="quick-add" onclick="event.stopPropagation(); quickAdd(' + p.id + ')">Quick Add</div>' +
+    '</div>' +
+    '<div class="product-card-info">' +
+    '<h3>' + p.name + '</h3>' +
+    '<div class="price">PKR ' + p.price.toLocaleString() + (p.oldPrice ? '<span class="old">PKR ' + p.oldPrice.toLocaleString() + '</span>' : '') + '</div>' +
+    '</div>' +
+    '</div>';
 }
 
 function quickAdd(productId) {
@@ -358,7 +353,8 @@ function initShop() {
   const cat = params.get('cat');
   const sort = params.get('sort');
   if (cat) {
-    document.getElementById('shopTitle').textContent = cat.charAt(0).toUpperCase() + cat.slice(1).replace('-', ' ');
+    const titleEl = document.getElementById('shopTitle');
+    if (titleEl) titleEl.textContent = cat.charAt(0).toUpperCase() + cat.slice(1).replace('-', ' ');
     document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => {
       if (cb.value === cat || cb.value === cat.split('-')[0]) cb.checked = true;
     });
@@ -389,7 +385,8 @@ function filterProducts() {
   if (sort === 'newest') filtered.sort((a, b) => b.id - a.id);
 
   renderProductGrid(filtered);
-  document.getElementById('resultCount').textContent = `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+  const countEl = document.getElementById('resultCount');
+  if (countEl) countEl.textContent = 'Showing ' + filtered.length + ' product' + (filtered.length !== 1 ? 's' : '');
 }
 
 function sortProducts() { filterProducts(); }
@@ -407,92 +404,100 @@ function initProduct() {
   const id = parseInt(params.get('id'));
   const product = products.find(p => p.id === id);
   if (!product) {
-    document.getElementById('productDetail').innerHTML = `
-      <div style="text-align:center;padding:80px 20px;">
-        <h2>Product not found</h2>
-        <a href="shop.html" style="color:#000;margin-top:20px;display:inline-block;">Back to Shop</a>
-      </div>`;
+    const detail = document.getElementById('productDetail');
+    if (detail) detail.innerHTML = '<div style="text-align:center;padding:80px 20px;"><h2>Product not found</h2><a href="shop.html" style="color:#000;margin-top:20px;display:inline-block;">Back to Shop</a></div>';
     return;
   }
 
   trackView(id);
 
-  document.getElementById('mainImage').src = product.images[0];
-  document.getElementById('galleryThumbs').innerHTML = product.images.map((img, i) =>
-    `<img src="${img}" class="${i === 0 ? 'active' : ''}" onclick="setMainImage('${img}', this)" alt="Thumbnail">`
+  const mainImg = document.getElementById('mainImage');
+  if (mainImg) mainImg.src = product.images[0];
+
+  const thumbs = document.getElementById('galleryThumbs');
+  if (thumbs) thumbs.innerHTML = product.images.map((img, i) =>
+    '<img src="' + img + '" class="' + (i === 0 ? 'active' : '') + '" onclick="setMainImage('' + img + '', this)" alt="Thumbnail">'
   ).join('');
 
   const isWished = getWishlist().includes(product.id);
   const stockClass = product.stock > 10 ? 'in' : product.stock > 0 ? 'low' : 'out';
-  const stockText = product.stock > 10 ? 'In Stock' : product.stock > 0 ? `Only ${product.stock} left!` : 'Out of Stock';
+  const stockText = product.stock > 10 ? 'In Stock' : product.stock > 0 ? 'Only ' + product.stock + ' left!' : 'Out of Stock';
 
-  document.getElementById('productInfo').innerHTML = `
-    <h1>${product.name}</h1>
-    <div class="sku">SKU: ${product.sku}</div>
-    <div class="price">PKR ${product.price.toLocaleString()}</div>
-    <div class="stock ${stockClass}">${stockText}</div>
-    <div class="product-rating">
-      <span class="stars">${'&#9733;'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '&#9733;' : ''}${'&#9734;'.repeat(5 - Math.ceil(product.rating))}</span>
-      <span class="review-count">${product.rating} (${product.reviews} reviews)</span>
-    </div>
-    <div class="accordion">
-      <div class="accordion-item open">
-        <div class="accordion-header" onclick="toggleAccordion(this)">Description <span class="icon">+</span></div>
-        <div class="accordion-body">${product.description}</div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">Fabric Details <span class="icon">+</span></div>
-        <div class="accordion-body">Premium quality fabric with digital print. Shirt: 3.0 meters, Dupatta: 2.5 meters, Trouser: 2.5 meters. Fabric: 100% Pure Lawn.</div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">Care Instructions <span class="icon">+</span></div>
-        <div class="accordion-body">Dry clean recommended. Hand wash in cold water with mild detergent. Do not bleach. Iron on medium heat.</div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">Shipping & Returns <span class="icon">+</span></div>
-        <div class="accordion-body">Free shipping on orders over PKR 5,000. Standard delivery: 3-5 business days. Express: 1-2 business days. Easy 7-day exchange policy.</div>
-      </div>
-    </div>
-    <div class="size-selector">
-      <div class="size-selector-header">
-        <label>Select Size</label>
-        <span class="size-guide-link" onclick="openSizeGuide()">Size Guide</span>
-      </div>
-      <div class="size-options" id="sizeOptions">
-        ${product.sizes.map((s, i) => `<button class="size-option ${i === 0 ? 'active' : ''}" onclick="selectSize(this)">${s}</button>`).join('')}
-      </div>
-    </div>
-    <div class="quantity-selector">
-      <label>Quantity</label>
-      <div class="qty-controls">
-        <button onclick="changeQty(-1)">−</button>
-        <input type="text" value="1" id="qtyInput" readonly>
-        <button onclick="changeQty(1)">+</button>
-      </div>
-    </div>
-    <div class="product-actions">
-      <button class="btn-add-cart" id="addCartBtn" onclick="addProductToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>${product.stock === 0 ? 'Out of Stock' : 'Add to Bag'}</button>
-      <button class="btn-wishlist ${isWished ? 'active' : ''}" id="wishlistBtn" onclick="toggleProductWishlist(${product.id})">${isWished ? '&#10084;' : '&#9825;'}</button>
-    </div>
-    <div class="product-meta">
-      <p><strong>Category:</strong> ${product.category.replace('-', ' ').toUpperCase()}</p>
-      <p><strong>Shipping:</strong> Free delivery on orders over PKR 5,000</p>
-      <p><strong>Returns:</strong> Easy 7-day exchange policy</p>
-    </div>
-  `;
+  const info = document.getElementById('productInfo');
+  if (info) info.innerHTML =
+    '<h1>' + product.name + '</h1>' +
+    '<div class="sku">SKU: ' + product.sku + '</div>' +
+    '<div class="price">PKR ' + product.price.toLocaleString() + '</div>' +
+    '<div class="stock ' + stockClass + '">' + stockText + '</div>' +
+    '<div class="product-rating">' +
+    '<span class="stars">' + '&#9733;'.repeat(Math.floor(product.rating)) + (product.rating % 1 >= 0.5 ? '&#9733;' : '') + '&#9734;'.repeat(5 - Math.ceil(product.rating)) + '</span>' +
+    '<span class="review-count">' + product.rating + ' (' + product.reviews + ' reviews)</span>' +
+    '</div>' +
+    '<div class="accordion">' +
+    '<div class="accordion-item open">' +
+    '<div class="accordion-header" onclick="toggleAccordion(this)">Description <span class="icon">+</span></div>' +
+    '<div class="accordion-body">' + product.description + '</div>' +
+    '</div>' +
+    '<div class="accordion-item">' +
+    '<div class="accordion-header" onclick="toggleAccordion(this)">Fabric Details <span class="icon">+</span></div>' +
+    '<div class="accordion-body">Premium quality fabric with digital print. Shirt: 3.0 meters, Dupatta: 2.5 meters, Trouser: 2.5 meters. Fabric: 100% Pure Lawn.</div>' +
+    '</div>' +
+    '<div class="accordion-item">' +
+    '<div class="accordion-header" onclick="toggleAccordion(this)">Care Instructions <span class="icon">+</span></div>' +
+    '<div class="accordion-body">Dry clean recommended. Hand wash in cold water with mild detergent. Do not bleach. Iron on medium heat.</div>' +
+    '</div>' +
+    '<div class="accordion-item">' +
+    '<div class="accordion-header" onclick="toggleAccordion(this)">Shipping & Returns <span class="icon">+</span></div>' +
+    '<div class="accordion-body">Free shipping on orders over PKR 5,000. Standard delivery: 3-5 business days. Express: 1-2 business days. Easy 7-day exchange policy.</div>' +
+    '</div>' +
+    '</div>' +
+    '<div class="size-selector">' +
+    '<div class="size-selector-header">' +
+    '<label>Select Size</label>' +
+    '<span class="size-guide-link" onclick="openSizeGuide()">Size Guide</span>' +
+    '</div>' +
+    '<div class="size-options" id="sizeOptions">' +
+    product.sizes.map((s, i) => '<button class="size-option ' + (i === 0 ? 'active' : '') + '" onclick="selectSize(this)">' + s + '</button>').join('') +
+    '</div>' +
+    '</div>' +
+    '<div class="quantity-selector">' +
+    '<label>Quantity</label>' +
+    '<div class="qty-controls">' +
+    '<button onclick="changeQty(-1)">−</button>' +
+    '<input type="text" value="1" id="qtyInput" readonly>' +
+    '<button onclick="changeQty(1)">+</button>' +
+    '</div>' +
+    '</div>' +
+    '<div class="product-actions">' +
+    '<button class="btn-add-cart" id="addCartBtn" onclick="addProductToCart(' + product.id + ')" ' + (product.stock === 0 ? 'disabled' : '') + '>' + (product.stock === 0 ? 'Out of Stock' : 'Add to Bag') + '</button>' +
+    '<button class="btn-wishlist ' + (isWished ? 'active' : '') + '" id="wishlistBtn" onclick="toggleProductWishlist(' + product.id + ')">' + (isWished ? '&#10084;' : '&#9825;') + '</button>' +
+    '</div>' +
+    '<div class="product-meta">' +
+    '<p><strong>Category:</strong> ' + product.category.replace('-', ' ').toUpperCase() + '</p>' +
+    '<p><strong>Shipping:</strong> Free delivery on orders over PKR 5,000</p>' +
+    '<p><strong>Returns:</strong> Easy 7-day exchange policy</p>' +
+    '</div>';
 
   // Related products
-  const related = products.filter(p => p.id !== product.id && (p.category === product.category || p.category.includes(product.category.split('-')[0]))).slice(0, 4);
-  if (related.length > 0) {
-    document.getElementById('relatedProducts').innerHTML = `<h2>You May Also Like</h2><div class="product-grid">${related.map(p => renderProductCard(p)).join('')}</div>`;
+  const relatedContainer = document.getElementById('relatedProducts');
+  if (relatedContainer) {
+    const related = products.filter(p => p.id !== product.id && (p.category === product.category || p.category.includes(product.category.split('-')[0]))).slice(0, 4);
+    if (related.length > 0) {
+      relatedContainer.innerHTML = '<h2>You May Also Like</h2><div class="product-grid">' + related.map(p => renderProductCard(p)).join('') + '</div>';
+    }
   }
+
+  // Breadcrumb product name
+  const breadcrumb = document.getElementById('breadcrumbProduct');
+  if (breadcrumb) breadcrumb.textContent = product.name;
 
   renderRecentlyViewed();
   updateCartBadge();
 }
 
 function setMainImage(src, thumb) {
-  document.getElementById('mainImage').src = src;
+  const mainImg = document.getElementById('mainImage');
+  if (mainImg) mainImg.src = src;
   document.querySelectorAll('.gallery-thumbs img').forEach(t => t.classList.remove('active'));
   thumb.classList.add('active');
 }
@@ -511,6 +516,7 @@ function selectSize(btn) {
 
 function changeQty(delta) {
   const input = document.getElementById('qtyInput');
+  if (!input) return;
   let val = parseInt(input.value) + delta;
   if (val < 1) val = 1;
   input.value = val;
@@ -519,7 +525,8 @@ function changeQty(delta) {
 function addProductToCart(productId) {
   const activeSize = document.querySelector('.size-option.active');
   const size = activeSize ? activeSize.textContent : 'M';
-  const qty = parseInt(document.getElementById('qtyInput').value) || 1;
+  const qtyInput = document.getElementById('qtyInput');
+  const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
   addToCart(productId, size, qty);
 }
 
@@ -534,11 +541,13 @@ function toggleProductWishlist(productId) {
 }
 
 function openSizeGuide() {
-  document.getElementById('sizeGuideModal').classList.add('active');
+  const modal = document.getElementById('sizeGuideModal');
+  if (modal) modal.classList.add('active');
 }
 
 function closeSizeGuide() {
-  document.getElementById('sizeGuideModal').classList.remove('active');
+  const modal = document.getElementById('sizeGuideModal');
+  if (modal) modal.classList.remove('active');
 }
 
 // ===================== CART PAGE =====================
@@ -559,28 +568,26 @@ function initCart() {
   if (layout) layout.style.display = 'grid';
   if (emptyCart) emptyCart.style.display = 'none';
 
-  itemsContainer.innerHTML = cart.map(item => {
+  if (itemsContainer) itemsContainer.innerHTML = cart.map(item => {
     const product = products.find(p => p.id === item.id);
     if (!product) return '';
-    return `
-      <div class="cart-item">
-        <img src="${product.image}" alt="${product.name}">
-        <div class="cart-item-details">
-          <h3>${product.name}</h3>
-          <div class="variant">Size: ${item.size}</div>
-          <div class="qty-controls" style="border:none;margin-bottom:10px;">
-            <button onclick="updateCartQty(${item.id}, '${item.size}', -1)">−</button>
-            <input type="text" value="${item.qty}" readonly style="width:40px;">
-            <button onclick="updateCartQty(${item.id}, '${item.size}', 1)">+</button>
-          </div>
-          <div class="cart-actions">
-            <button onclick="removeFromCart(${item.id}, '${item.size}')">Remove</button>
-            <button onclick="moveToWishlist(${item.id}, '${item.size}')">Move to Wishlist</button>
-          </div>
-        </div>
-        <div class="cart-item-price">PKR ${(product.price * item.qty).toLocaleString()}</div>
-      </div>
-    `;
+    return '<div class="cart-item">' +
+      '<img src="' + product.image + '" alt="' + product.name + '">' +
+      '<div class="cart-item-details">' +
+      '<h3>' + product.name + '</h3>' +
+      '<div class="variant">Size: ' + item.size + '</div>' +
+      '<div class="qty-controls" style="border:none;margin-bottom:10px;">' +
+      '<button onclick="updateCartQty(' + item.id + ', '' + item.size + '', -1)">−</button>' +
+      '<input type="text" value="' + item.qty + '" readonly style="width:40px;">' +
+      '<button onclick="updateCartQty(' + item.id + ', '' + item.size + '', 1)">+</button>' +
+      '</div>' +
+      '<div class="cart-actions">' +
+      '<button onclick="removeFromCart(' + item.id + ', '' + item.size + '')">Remove</button>' +
+      '<button onclick="moveToWishlist(' + item.id + ', '' + item.size + '')">Move to Wishlist</button>' +
+      '</div>' +
+      '</div>' +
+      '<div class="cart-item-price">PKR ' + (product.price * item.qty).toLocaleString() + '</div>' +
+      '</div>';
   }).join('');
 
   const subtotal = getCartTotal();
@@ -592,31 +599,32 @@ function initCart() {
   const progress = Math.min(100, (subtotal / freeShipThreshold) * 100);
 
   const couponHtml = getCoupon() ?
-    `<div class="coupon-applied">Coupon "${getCoupon()}" applied — PKR ${discount.toLocaleString()} saved</div>` :
-    `<form class="coupon-form" onsubmit="applyCoupon(event)">
-      <input type="text" placeholder="Enter promo code" id="couponInput">
-      <button type="submit">Apply</button>
-    </form>`;
+    '<div class="coupon-applied">Coupon &quot;' + getCoupon() + '&quot; applied — PKR ' + discount.toLocaleString() + ' saved</div>' :
+    '<form class="coupon-form" onsubmit="applyCoupon(event)">' +
+    '<input type="text" placeholder="Enter promo code" id="couponInput">' +
+    '<button type="submit">Apply</button>' +
+    '</form>';
 
-  summaryContainer.innerHTML = `
-    <h2>Order Summary</h2>
-    <div class="shipping-bar">
-      <p>${remaining > 0 ? `Add PKR ${remaining.toLocaleString()} more for free shipping!` : 'You qualify for free shipping!'}</p>
-      <div class="progress"><div class="progress-fill" style="width:${progress}%"></div></div>
-    </div>
-    ${couponHtml}
-    <div class="summary-row"><span>Subtotal</span><span>PKR ${subtotal.toLocaleString()}</span></div>
-    ${discount > 0 ? `<div class="summary-row discount"><span>Discount</span><span>-PKR ${discount.toLocaleString()}</span></div>` : ''}
-    <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()}</span></div>
-    <div class="summary-row total"><span>Total</span><span>PKR ${total.toLocaleString()}</span></div>
-    <button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
-  `;
+  if (summaryContainer) summaryContainer.innerHTML =
+    '<h2>Order Summary</h2>' +
+    '<div class="shipping-bar">' +
+    '<p>' + (remaining > 0 ? 'Add PKR ' + remaining.toLocaleString() + ' more for free shipping!' : 'You qualify for free shipping!') + '</p>' +
+    '<div class="progress"><div class="progress-fill" style="width:' + progress + '%"></div></div>' +
+    '</div>' +
+    couponHtml +
+    '<div class="summary-row"><span>Subtotal</span><span>PKR ' + subtotal.toLocaleString() + '</span></div>' +
+    (discount > 0 ? '<div class="summary-row discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : '') +
+    '<div class="summary-row"><span>Shipping</span><span>' + (shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()) + '</span></div>' +
+    '<div class="summary-row total"><span>Total</span><span>PKR ' + total.toLocaleString() + '</span></div>' +
+    '<button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>';
+
   updateCartBadge();
 }
 
 function applyCoupon(e) {
   e.preventDefault();
-  const code = document.getElementById('couponInput').value.trim().toUpperCase();
+  const input = document.getElementById('couponInput');
+  const code = input ? input.value.trim().toUpperCase() : '';
   if (code === 'WELCOME10') {
     saveCoupon('WELCOME10');
     showToast('Coupon applied! 10% off');
@@ -642,27 +650,24 @@ function initCheckout() {
   const shipping = subtotal >= 5000 ? 0 : 250;
   const total = subtotal - discount + shipping;
 
-  container.innerHTML = `
-    <h2 style="font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px;font-weight:400;">Order Summary</h2>
-    ${cart.map(item => {
+  container.innerHTML =
+    '<h2 style="font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px;font-weight:400;">Order Summary</h2>' +
+    cart.map(item => {
       const product = products.find(p => p.id === item.id);
       if (!product) return '';
-      return `
-        <div class="order-item">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="order-item-info">
-            <h4>${product.name}</h4>
-            <p>Qty: ${item.qty} | Size: ${item.size}</p>
-            <p><strong>PKR ${(product.price * item.qty).toLocaleString()}</strong></p>
-          </div>
-        </div>
-      `;
-    }).join('')}
-    <div class="summary-row" style="margin-top:20px;padding-top:20px;border-top:1px solid #eee;"><span>Subtotal</span><span>PKR ${subtotal.toLocaleString()}</span></div>
-    ${discount > 0 ? `<div class="summary-row discount"><span>Discount</span><span>-PKR ${discount.toLocaleString()}</span></div>` : ''}
-    <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()}</span></div>
-    <div class="summary-row total" style="font-size:18px;font-weight:600;margin-top:15px;padding-top:15px;border-top:1px solid #ddd;"><span>Total</span><span>PKR ${total.toLocaleString()}</span></div>
-  `;
+      return '<div class="order-item">' +
+        '<img src="' + product.image + '" alt="' + product.name + '">' +
+        '<div class="order-item-info">' +
+        '<h4>' + product.name + '</h4>' +
+        '<p>Qty: ' + item.qty + ' | Size: ' + item.size + '</p>' +
+        '<p><strong>PKR ' + (product.price * item.qty).toLocaleString() + '</strong></p>' +
+        '</div>' +
+        '</div>';
+    }).join('') +
+    '<div class="summary-row" style="margin-top:20px;padding-top:20px;border-top:1px solid #eee;"><span>Subtotal</span><span>PKR ' + subtotal.toLocaleString() + '</span></div>' +
+    (discount > 0 ? '<div class="summary-row discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : '') +
+    '<div class="summary-row"><span>Shipping</span><span>' + (shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()) + '</span></div>' +
+    '<div class="summary-row total" style="font-size:18px;font-weight:600;margin-top:15px;padding-top:15px;border-top:1px solid #ddd;"><span>Total</span><span>PKR ' + total.toLocaleString() + '</span></div>';
 
   // Payment method selection
   document.querySelectorAll('.payment-method').forEach(pm => {
@@ -728,8 +733,10 @@ function handleRegister(e) {
 
 function initAccount() {
   if (getLoggedIn()) {
-    document.querySelector('.account-container').style.display = 'none';
-    document.getElementById('accountDashboard').classList.add('active');
+    const container = document.querySelector('.account-container');
+    if (container) container.style.display = 'none';
+    const dashboard = document.getElementById('accountDashboard');
+    if (dashboard) dashboard.classList.add('active');
     renderOrders();
   }
 }
@@ -739,20 +746,18 @@ function renderOrders() {
   if (!tbody) return;
   const orders = getOrders();
   if (orders.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:30px;color:#999;">No orders yet</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:30px;color:#999;">No orders yet</td></tr>';
     return;
   }
   tbody.innerHTML = orders.map(o => {
     const product = products.find(p => p.id === o.items[0].id);
-    return `
-      <tr>
-        <td>${o.id}</td>
-        <td>${o.date}</td>
-        <td>${product ? product.name : 'Product'} ${o.items.length > 1 ? '+ ' + (o.items.length - 1) + ' more' : ''}</td>
-        <td><span class="order-status ${o.status}">${o.status}</span></td>
-        <td>PKR ${o.total.toLocaleString()}</td>
-      </tr>
-    `;
+    return '<tr>' +
+      '<td>' + o.id + '</td>' +
+      '<td>' + o.date + '</td>' +
+      '<td>' + (product ? product.name : 'Product') + (o.items.length > 1 ? ' + ' + (o.items.length - 1) + ' more' : '') + '</td>' +
+      '<td><span class="order-status ' + o.status + '">' + o.status + '</span></td>' +
+      '<td>PKR ' + o.total.toLocaleString() + '</td>' +
+      '</tr>';
   }).join('');
 }
 
@@ -796,7 +801,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Popup
   if (!localStorage.getItem('popupClosed') && document.getElementById('popup')) {
-    setTimeout(() => document.getElementById('popup').classList.add('active'), 2000);
+    setTimeout(() => {
+      const popup = document.getElementById('popup');
+      if (popup) popup.classList.add('active');
+    }, 2000);
   }
 
   // Header scroll
