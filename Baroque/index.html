@@ -17,17 +17,17 @@
     <div class="popup">
       <button class="popup-close" onclick="closePopup()" title="Close newsletter popup">&times;</button>
       <div class="popup-form">
-        <h2>Join Our Newsletter</h2>
-        <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+        <h2 class="popup-title">Join Our Newsletter</h2>
+        <p class="popup-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
         <form class="popup-form" onsubmit="subscribePopup(event)">
-          <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" required />
-          <button type="submit">Subscribe</button>
+          <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" class="popup-form-input" required />
+          <button type="submit" class="popup-form-btn">Subscribe</button>
         </form>
       </div>
       <div class="popup-success">
-        <h2>Welcome!</h2>
-        <p>Your 10% OFF code is <strong>WELCOME10</strong></p>
-        <p class="check-email">Check your email for confirmation.</p>
+        <h2 class="popup-success-title">Welcome!</h2>
+        <p class="popup-success-code">Your 10% OFF code is <strong>WELCOME10</strong></p>
+        <p class="popup-success-note">Check your email for confirmation.</p>
       </div>
     </div>
   </div>
@@ -37,35 +37,36 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-        <a href="shop.html?sort=newest" class="">New In</a>
-        <a href="shop.html" class="">Ready to Wear</a>
-        <a href="shop.html?cat=unstitched" class="">Unstitched</a>
-        <a href="shop.html?cat=formals" class="">Formals</a>
+        <a href="shop.html?sort=newest" class="nav-link ">New In</a>
+        <a href="shop.html" class="nav-link ">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="nav-link ">Unstitched</a>
+        <a href="shop.html?cat=formals" class="nav-link ">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <button onclick="openSearch()" title="Search">Search</button>
-      <a href="account.html" title="Account">Account</a>
-      <a href="wishlist.html" title="Wishlist">Wishlist</a>
-      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+      <button class="header-icon-btn" onclick="openSearch()" title="Search">Search</button>
+      <a href="account.html" class="header-icon" title="Account">Account</a>
+      <a href="wishlist.html" class="header-icon" title="Wishlist">Wishlist</a>
+      <a href="cart.html" class="header-icon" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
   </div>
 
   <div class="search-overlay" id="searchOverlay">
     <button class="search-close" onclick="closeSearch()">&times;</button>
     <div class="search-box">
-      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+      <input type="text" placeholder="Search products..." id="searchInput" class="search-box-input" autocomplete="off">
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
 
   <div class="hero">
-    <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner91_38cb943e-fb76-415b-83a1-ae37c553c60e.jpg?v=1781700203&width=2000" alt="EID LAWN 26 Fashion Campaign" />
+    <!-- PLACEHOLDER: Replace with your hero banner image -->
+    <img src="assets/images/banners/hero-banner.jpg" alt="EID LAWN 26 Fashion Campaign" class="hero-img" onerror="this.parentElement.classList.add('placeholder-banner')" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h2>Own Your New Look</h2>
-      <h1>EID LAWN 26</h1>
+      <h2 class="hero-subtitle">Own Your New Look</h2>
+      <h1 class="hero-title">EID LAWN 26</h1>
       <div class="hero-buttons">
         <a href="shop.html?cat=unstitched" class="hero-btn">UNSTITCHED</a>
         <a href="shop.html?cat=stitched" class="hero-btn">STITCHED</a>
@@ -73,18 +74,22 @@
     </div>
   </div>
 
-  <div class="section-heading"><h2>EID LAWN 26</h2></div>
+  <div class="section-heading">
+    <h2 class="section-title">EID LAWN 26</h2>
+  </div>
   <div class="dual-section">
     <div class="dual-row">
       <div class="dual-item" onclick="location.href='shop.html?cat=unstitched'">
-        <img src="https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=1000" alt="Unstitched Collection" />
+        <!-- PLACEHOLDER: Replace with your collection image -->
+        <img src="assets/images/collections/unstitched.jpg" alt="Unstitched Collection" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
         <div class="dual-overlay"></div>
         <div class="dual-content">
           <a href="shop.html?cat=unstitched" class="dual-btn">UNSTITCHED</a>
         </div>
       </div>
       <div class="dual-item" onclick="location.href='shop.html?cat=stitched'">
-        <img src="https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=1000" alt="Stitched Collection" />
+        <!-- PLACEHOLDER: Replace with your collection image -->
+        <img src="assets/images/collections/stitched.jpg" alt="Stitched Collection" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
         <div class="dual-overlay"></div>
         <div class="dual-content">
           <a href="shop.html?cat=stitched" class="dual-btn">STITCHED</a>
@@ -94,37 +99,44 @@
   </div>
 
   <div class="section-heading">
-    <h2>New Arrivals</h2>
-    <p>Shop the latest from our Eid Lawn 26 collection</p>
+    <h2 class="section-title">New Arrivals</h2>
+    <p class="section-subtitle">Shop the latest from our Eid Lawn 26 collection</p>
   </div>
-  <div class="new-arrivals-section">
+  <div class="container-sm">
     <div class="product-grid" id="newArrivals"></div>
   </div>
 
-  <div class="section-heading"><h2>READY TO WEAR</h2></div>
+  <div class="section-heading">
+    <h2 class="section-title">READY TO WEAR</h2>
+  </div>
   <div class="single-section">
     <div class="single-item" onclick="location.href='shop.html'">
-      <img src="https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=2000" alt="Ready to Wear Collection" />
+      <!-- PLACEHOLDER: Replace with your collection image -->
+      <img src="assets/images/banners/ready-to-wear.jpg" alt="Ready to Wear Collection" class="single-item-img" onerror="this.src='assets/images/placeholder-banner.jpg'" />
       <div class="single-overlay"></div>
-      <div class="corner-buttons left">
+      <div class="corner-buttons corner-buttons-left">
         <a href="shop.html?cat=summer" class="corner-btn">SUMMER</a>
         <a href="shop.html" class="corner-btn">SHOP ALL</a>
       </div>
     </div>
   </div>
 
-  <div class="section-heading"><h2>Chantelle Collection</h2></div>
+  <div class="section-heading">
+    <h2 class="section-title">Chantelle Collection</h2>
+  </div>
   <div class="dual-section">
     <div class="dual-row">
       <div class="dual-item" onclick="location.href='shop.html?cat=chantelle'">
-        <img src="https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=1000" alt="Chantelle Unstitched" />
+        <!-- PLACEHOLDER: Replace with your collection image -->
+        <img src="assets/images/collections/chantelle-unstitched.jpg" alt="Chantelle Unstitched" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
         <div class="dual-overlay"></div>
         <div class="dual-content">
           <a href="shop.html?cat=chantelle" class="dual-btn">UNSTITCHED</a>
         </div>
       </div>
       <div class="dual-item" onclick="location.href='shop.html?cat=chantelle-stitched'">
-        <img src="https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=1000" alt="Chantelle Stitched" />
+        <!-- PLACEHOLDER: Replace with your collection image -->
+        <img src="assets/images/collections/chantelle-stitched.jpg" alt="Chantelle Stitched" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
         <div class="dual-overlay"></div>
         <div class="dual-content">
           <a href="shop.html?cat=chantelle-stitched" class="dual-btn">STITCHED</a>
@@ -133,12 +145,15 @@
     </div>
   </div>
 
-  <div class="section-heading"><h2>ESSENTIALS</h2></div>
+  <div class="section-heading">
+    <h2 class="section-title">ESSENTIALS</h2>
+  </div>
   <div class="single-section">
     <div class="single-item" onclick="location.href='shop.html?cat=essentials'">
-      <img src="https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=2000" alt="Essentials Collection" />
+      <!-- PLACEHOLDER: Replace with your collection image -->
+      <img src="assets/images/banners/essentials.jpg" alt="Essentials Collection" class="single-item-img" onerror="this.src='assets/images/placeholder-banner.jpg'" />
       <div class="single-overlay"></div>
-      <div class="corner-buttons right">
+      <div class="corner-buttons corner-buttons-right">
         <a href="shop.html?cat=ensembles" class="corner-btn">ENSEMBLES</a>
         <a href="shop.html?cat=dupattas" class="corner-btn">DUPATTAS</a>
       </div>
@@ -148,46 +163,46 @@
   <div class="footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>About</h4>
-        <a href="about.html">Who We Are</a>
-        <a href="about.html">Our Responsibility</a>
-        <a href="about.html">Careers</a>
+        <h4 class="footer-col-title">About</h4>
+        <a href="about.html" class="footer-link">Who We Are</a>
+        <a href="about.html" class="footer-link">Our Responsibility</a>
+        <a href="about.html" class="footer-link">Careers</a>
         <p class="footer-contact-text">
           Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
         </p>
       </div>
       <div class="footer-col">
-        <h4>Customer Service</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="about.html">Dispatch Timeline</a>
-        <a href="about.html">Exchange Information</a>
+        <h4 class="footer-col-title">Customer Service</h4>
+        <a href="contact.html" class="footer-link">Contact Us</a>
+        <a href="about.html" class="footer-link">Dispatch Timeline</a>
+        <a href="about.html" class="footer-link">Exchange Information</a>
         <p class="footer-service-text">Email: info@baroque.pk</p>
         <p class="footer-service-text">UAN 111-302-302</p>
         <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
       </div>
       <div class="footer-col">
-        <h4>Policies</h4>
-        <a href="about.html">Privacy Policy</a>
-        <a href="about.html">Refund Policy</a>
-        <a href="about.html">Shipping Policy</a>
-        <a href="about.html">Terms of Service</a>
+        <h4 class="footer-col-title">Policies</h4>
+        <a href="about.html" class="footer-link">Privacy Policy</a>
+        <a href="about.html" class="footer-link">Refund Policy</a>
+        <a href="about.html" class="footer-link">Shipping Policy</a>
+        <a href="about.html" class="footer-link">Terms of Service</a>
       </div>
       <div class="footer-col">
-        <h4>Newsletter</h4>
+        <h4 class="footer-col-title">Newsletter</h4>
         <form class="footer-form" onsubmit="subscribeFooter(event)">
-          <input type="email" placeholder="Your email" title="Email for newsletter" required>
-          <button type="submit">Join</button>
+          <input type="email" placeholder="Your email" title="Email for newsletter" class="footer-form-input" required>
+          <button type="submit" class="footer-form-btn">Join</button>
         </form>
       </div>
     </div>
     <div class="footer-social">
-      <a href="#" title="Instagram">&#9733;</a>
-      <a href="#" title="Facebook">&#9733;</a>
-      <a href="#" title="Pinterest">&#9733;</a>
-      <a href="#" title="YouTube">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Instagram">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Facebook">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Pinterest">&#9733;</a>
+      <a href="#" class="footer-social-link" title="YouTube">&#9733;</a>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 - BAROQUE</p>
+      <p class="footer-bottom-text">&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
@@ -195,8 +210,8 @@
   <div class="toast" id="toast"></div>
   <script src="script.js"></script>
   <script>
-    var newArrivals = products.slice(0, 4);
-    document.getElementById('newArrivals').innerHTML = newArrivals.map(function(p) { return renderProductCard(p); }).join('');
+    const newArrivals = products.slice(0, 4);
+    document.getElementById('newArrivals').innerHTML = newArrivals.map(p => renderProductCard(p)).join('');
     updateWishlistIcons();
   </script>
 </body>

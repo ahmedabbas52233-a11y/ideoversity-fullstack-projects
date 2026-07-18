@@ -2,81 +2,57 @@
 const products = [
   {
     id: 1, name: "Eid Lawn 26 - Unstitched 3 Piece", price: 8490, oldPrice: 9990,
-    category: "unstitched", image: "https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=800",
-      "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800",
-      "https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=800"
-    ],
+    category: "unstitched", image: "assets/images/products/product-1.jpg",
+    images: ["assets/images/products/product-1.jpg", "assets/images/products/product-2.jpg", "assets/images/products/product-3.jpg"],
     sku: "BL-EID26-001", description: "Premium lawn fabric with intricate digital print. Includes shirt, dupatta, and trouser fabric. Perfect for Eid celebrations.",
     sizes: ["S", "M", "L", "XL"], badge: "New", stock: 12, rating: 4.8, reviews: 24
   },
   {
     id: 2, name: "Eid Lawn 26 - Stitched 2 Piece", price: 12490, oldPrice: null,
-    category: "stitched", image: "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800",
-      "https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=800"
-    ],
+    category: "stitched", image: "assets/images/products/product-2.jpg",
+    images: ["assets/images/products/product-2.jpg", "assets/images/products/product-4.jpg"],
     sku: "BL-EID26-002", description: "Ready-to-wear stitched ensemble featuring embroidered neckline and detailed sleeves. Comfortable yet elegant.",
     sizes: ["S", "M", "L"], badge: "Bestseller", stock: 8, rating: 4.9, reviews: 56
   },
   {
     id: 3, name: "Chantelle Unstitched Lawn", price: 7490, oldPrice: 8990,
-    category: "chantelle", image: "https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/94_40f6c30f-a06f-4cc3-a62f-9371aecae524.jpg?v=1780735216&width=800",
-      "https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=800"
-    ],
+    category: "chantelle", image: "assets/images/products/product-3.jpg",
+    images: ["assets/images/products/product-3.jpg", "assets/images/products/product-1.jpg"],
     sku: "BL-CHA-001", description: "Chantelle collection unstitched 3-piece suit with floral digital print and embroidered borders.",
     sizes: ["S", "M", "L", "XL"], badge: "Sale", stock: 5, rating: 4.6, reviews: 18
   },
   {
     id: 4, name: "Chantelle Stitched Kurti", price: 6490, oldPrice: null,
-    category: "chantelle-stitched", image: "https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=800",
-      "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800"
-    ],
+    category: "chantelle-stitched", image: "assets/images/products/product-4.jpg",
+    images: ["assets/images/products/product-4.jpg", "assets/images/products/product-2.jpg"],
     sku: "BL-CHA-002", description: "Elegant stitched kurti from the Chantelle collection. Features delicate embroidery and premium finishing.",
     sizes: ["S", "M", "L"], badge: null, stock: 15, rating: 4.7, reviews: 31
   },
   {
     id: 5, name: "Summer Essential - Lawn Shirt", price: 3490, oldPrice: null,
-    category: "summer", image: "https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=800",
-      "https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=800"
-    ],
+    category: "summer", image: "assets/images/products/product-5.jpg",
+    images: ["assets/images/products/product-5.jpg", "assets/images/products/product-6.jpg"],
     sku: "BL-SUM-001", description: "Breathable lawn shirt perfect for summer days. Features a contemporary print with classic Baroque quality.",
     sizes: ["XS", "S", "M", "L", "XL"], badge: null, stock: 20, rating: 4.5, reviews: 12
   },
   {
     id: 6, name: "Formal Evening Wear - Chiffon", price: 18490, oldPrice: 21990,
-    category: "formals", image: "https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/MAin_BAnner92_dcb4ebc5-a30b-4971-a0c0-a284b333335c.jpg?v=1781705283&width=800",
-      "https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=800"
-    ],
+    category: "formals", image: "assets/images/products/product-6.jpg",
+    images: ["assets/images/products/product-6.jpg", "assets/images/products/product-5.jpg"],
     sku: "BL-FOR-001", description: "Luxurious chiffon formal wear with intricate hand embellishments. Perfect for weddings and evening events.",
     sizes: ["S", "M", "L"], badge: "Premium", stock: 3, rating: 4.9, reviews: 42
   },
   {
     id: 7, name: "Embroidered Dupatta - Organza", price: 2490, oldPrice: null,
-    category: "dupattas", image: "https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/66_bb64a81d-6882-43c1-8d92-4745f409c4db.jpg?v=1781700736&width=800"
-    ],
+    category: "dupattas", image: "assets/images/products/product-7.jpg",
+    images: ["assets/images/products/product-7.jpg"],
     sku: "BL-DUP-001", description: "Lightweight organza dupatta with delicate embroidery and sequin detailing. A versatile addition to any outfit.",
     sizes: ["One Size"], badge: null, stock: 25, rating: 4.4, reviews: 8
   },
   {
     id: 8, name: "Essential Ensemble - 2 Piece", price: 5490, oldPrice: null,
-    category: "ensembles", image: "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800",
-    images: [
-      "https://baroque.pk/cdn/shop/files/89_573350eb-e4ef-45d1-82a8-f645319cc398.jpg?v=1781700782&width=800",
-      "https://baroque.pk/cdn/shop/files/71_a7f44a07-f169-4212-af39-74a87a6c9c5a.jpg?v=1781703427&width=800"
-    ],
+    category: "ensembles", image: "assets/images/products/product-8.jpg",
+    images: ["assets/images/products/product-8.jpg", "assets/images/products/product-4.jpg"],
     sku: "BL-ENS-001", description: "Coordinated 2-piece ensemble featuring a printed shirt and matching trousers. Comfortable everyday elegance.",
     sizes: ["S", "M", "L", "XL"], badge: null, stock: 18, rating: 4.6, reviews: 22
   }
@@ -90,7 +66,7 @@ const reviews = [
   { name: "Nadia A.", rating: 4, date: "2026-04-15", text: "Beautiful formal wear. Delivery was quick and packaging was elegant.", productId: 6 },
 ];
 
-// ===================== STORAGE HELPERS =====================
+// ===================== STORAGE =====================
 function getCart() { return JSON.parse(localStorage.getItem('baroqueCart')) || []; }
 function saveCart(cart) { localStorage.setItem('baroqueCart', JSON.stringify(cart)); updateCartBadge(); }
 function getWishlist() { return JSON.parse(localStorage.getItem('baroqueWishlist')) || []; }
@@ -192,7 +168,7 @@ function updateWishlistIcons() {
   document.querySelectorAll('.btn-wishlist').forEach(btn => {
     const container = btn.closest('.product-info');
     if (!container) return;
-    const h1 = container.querySelector('h1');
+    const h1 = container.querySelector('.product-info-title');
     if (!h1) return;
     const product = products.find(p => p.name === h1.textContent);
     if (product && list.includes(product.id)) {
@@ -219,7 +195,7 @@ function renderRecentlyViewed() {
   const recentProducts = recent.map(id => products.find(p => p.id === id)).filter(Boolean);
   if (recentProducts.length < 2) { container.style.display = 'none'; return; }
   container.style.display = 'block';
-  container.innerHTML = '<h2>Recently Viewed</h2><div class="recently-scroll">' + recentProducts.map(p => renderProductCard(p)).join('') + '</div>';
+  container.innerHTML = '<h2 class="recently-viewed-title">Recently Viewed</h2><div class="recently-scroll">' + recentProducts.map(p => renderProductCard(p)).join('') + '</div>';
   updateWishlistIcons();
 }
 
@@ -286,12 +262,15 @@ function doSearch(query) {
     results.innerHTML = '<div class="search-no-results">No products found. Try a different search.</div>';
     return;
   }
-  results.innerHTML = matches.map(p =>
-    '<div class="search-result-item" onclick="location.href='product.html?id=' + p.id + ''">' +
-    '<img src="' + p.image + '" alt="' + p.name + '">' +
-    '<div><h4>' + p.name + '</h4><div class="price">PKR ' + p.price.toLocaleString() + '</div></div>' +
-    '</div>'
-  ).join('');
+  results.innerHTML = matches.map(p => `
+    <div class="search-result-item" onclick="location.href='product.html?id=${p.id}'">
+      <img class="search-result-img" src="${p.image}" alt="${p.name}" onerror="this.src='assets/images/placeholder-product.jpg'">
+      <div>
+        <h4 class="search-result-title">${p.name}</h4>
+        <div class="search-result-price">PKR ${p.price.toLocaleString()}</div>
+      </div>
+    </div>
+  `).join('');
 }
 
 // ===================== MOBILE MENU =====================
@@ -323,21 +302,23 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===================== PRODUCT CARD RENDERER =====================
+// ===================== PRODUCT CARD =====================
 function renderProductCard(p) {
   const isWished = getWishlist().includes(p.id);
-  return '<div class="product-card" onclick="location.href='product.html?id=' + p.id + ''">' +
-    '<div class="product-card-img">' +
-    '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">' +
-    (p.badge ? '<span class="product-badge">' + p.badge + '</span>' : '') +
-    '<button class="product-wishlist ' + (isWished ? 'active' : '') + '" onclick="event.stopPropagation(); toggleWishlist(' + p.id + ', this)">' + (isWished ? '&#10084;' : '&#9825;') + '</button>' +
-    '<div class="quick-add" onclick="event.stopPropagation(); quickAdd(' + p.id + ')">Quick Add</div>' +
-    '</div>' +
-    '<div class="product-card-info">' +
-    '<h3>' + p.name + '</h3>' +
-    '<div class="price">PKR ' + p.price.toLocaleString() + (p.oldPrice ? '<span class="old">PKR ' + p.oldPrice.toLocaleString() + '</span>' : '') + '</div>' +
-    '</div>' +
-    '</div>';
+  return `
+    <div class="product-card" onclick="location.href='product.html?id=${p.id}'">
+      <div class="product-card-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/placeholder-product.jpg'">
+        ${p.badge ? '<span class="product-badge">' + p.badge + '</span>' : ''}
+        <button class="product-wishlist ${isWished ? 'active' : ''}" onclick="event.stopPropagation(); toggleWishlist(${p.id}, this)">${isWished ? '&#10084;' : '&#9825;'}</button>
+        <div class="quick-add" onclick="event.stopPropagation(); quickAdd(${p.id})">Quick Add</div>
+      </div>
+      <div class="product-card-info">
+        <h3 class="product-card-title">${p.name}</h3>
+        <div class="product-card-price">PKR ${p.price.toLocaleString()}${p.oldPrice ? '<span class="product-card-old-price">PKR ' + p.oldPrice.toLocaleString() + '</span>' : ''}</div>
+      </div>
+    </div>
+  `;
 }
 
 function quickAdd(productId) {
@@ -405,101 +386,105 @@ function initProduct() {
   const product = products.find(p => p.id === id);
   if (!product) {
     const detail = document.getElementById('productDetail');
-    if (detail) detail.innerHTML = '<div style="text-align:center;padding:80px 20px;"><h2>Product not found</h2><a href="shop.html" style="color:#000;margin-top:20px;display:inline-block;">Back to Shop</a></div>';
+    if (detail) {
+      detail.innerHTML = '<div class="text-center pt-60 pb-60"><h2>Product not found</h2><a href="shop.html" class="hero-btn-dark mt-20">Back to Shop</a></div>';
+    }
     return;
   }
 
   trackView(id);
 
   const mainImg = document.getElementById('mainImage');
-  if (mainImg) mainImg.src = product.images[0];
+  if (mainImg) { mainImg.src = product.images[0]; mainImg.onerror = function() { this.src = 'assets/images/placeholder-product.jpg'; }; }
 
   const thumbs = document.getElementById('galleryThumbs');
-  if (thumbs) thumbs.innerHTML = product.images.map((img, i) =>
-    '<img src="' + img + '" class="' + (i === 0 ? 'active' : '') + '" onclick="setMainImage('' + img + '', this)" alt="Thumbnail">'
-  ).join('');
+  if (thumbs) {
+    thumbs.innerHTML = product.images.map((img, i) =>
+      '<img src="' + img + '" class="gallery-thumb ' + (i === 0 ? 'active' : '') + '" onclick="setMainImage(this.src, this)" alt="Thumbnail" onerror="this.src='assets/images/placeholder-product.jpg'">'
+    ).join('');
+  }
+
+  const bc = document.getElementById('breadcrumbProduct');
+  if (bc) bc.textContent = product.name;
 
   const isWished = getWishlist().includes(product.id);
-  const stockClass = product.stock > 10 ? 'in' : product.stock > 0 ? 'low' : 'out';
+  const stockClass = product.stock > 10 ? 'product-info-stock-in' : product.stock > 0 ? 'product-info-stock-low' : 'product-info-stock-out';
   const stockText = product.stock > 10 ? 'In Stock' : product.stock > 0 ? 'Only ' + product.stock + ' left!' : 'Out of Stock';
 
   const info = document.getElementById('productInfo');
-  if (info) info.innerHTML =
-    '<h1>' + product.name + '</h1>' +
-    '<div class="sku">SKU: ' + product.sku + '</div>' +
-    '<div class="price">PKR ' + product.price.toLocaleString() + '</div>' +
-    '<div class="stock ' + stockClass + '">' + stockText + '</div>' +
-    '<div class="product-rating">' +
-    '<span class="stars">' + '&#9733;'.repeat(Math.floor(product.rating)) + (product.rating % 1 >= 0.5 ? '&#9733;' : '') + '&#9734;'.repeat(5 - Math.ceil(product.rating)) + '</span>' +
-    '<span class="review-count">' + product.rating + ' (' + product.reviews + ' reviews)</span>' +
-    '</div>' +
-    '<div class="accordion">' +
-    '<div class="accordion-item open">' +
-    '<div class="accordion-header" onclick="toggleAccordion(this)">Description <span class="icon">+</span></div>' +
-    '<div class="accordion-body">' + product.description + '</div>' +
-    '</div>' +
-    '<div class="accordion-item">' +
-    '<div class="accordion-header" onclick="toggleAccordion(this)">Fabric Details <span class="icon">+</span></div>' +
-    '<div class="accordion-body">Premium quality fabric with digital print. Shirt: 3.0 meters, Dupatta: 2.5 meters, Trouser: 2.5 meters. Fabric: 100% Pure Lawn.</div>' +
-    '</div>' +
-    '<div class="accordion-item">' +
-    '<div class="accordion-header" onclick="toggleAccordion(this)">Care Instructions <span class="icon">+</span></div>' +
-    '<div class="accordion-body">Dry clean recommended. Hand wash in cold water with mild detergent. Do not bleach. Iron on medium heat.</div>' +
-    '</div>' +
-    '<div class="accordion-item">' +
-    '<div class="accordion-header" onclick="toggleAccordion(this)">Shipping & Returns <span class="icon">+</span></div>' +
-    '<div class="accordion-body">Free shipping on orders over PKR 5,000. Standard delivery: 3-5 business days. Express: 1-2 business days. Easy 7-day exchange policy.</div>' +
-    '</div>' +
-    '</div>' +
-    '<div class="size-selector">' +
-    '<div class="size-selector-header">' +
-    '<label>Select Size</label>' +
-    '<span class="size-guide-link" onclick="openSizeGuide()">Size Guide</span>' +
-    '</div>' +
-    '<div class="size-options" id="sizeOptions">' +
-    product.sizes.map((s, i) => '<button class="size-option ' + (i === 0 ? 'active' : '') + '" onclick="selectSize(this)">' + s + '</button>').join('') +
-    '</div>' +
-    '</div>' +
-    '<div class="quantity-selector">' +
-    '<label>Quantity</label>' +
-    '<div class="qty-controls">' +
-    '<button onclick="changeQty(-1)">−</button>' +
-    '<input type="text" value="1" id="qtyInput" readonly>' +
-    '<button onclick="changeQty(1)">+</button>' +
-    '</div>' +
-    '</div>' +
-    '<div class="product-actions">' +
-    '<button class="btn-add-cart" id="addCartBtn" onclick="addProductToCart(' + product.id + ')" ' + (product.stock === 0 ? 'disabled' : '') + '>' + (product.stock === 0 ? 'Out of Stock' : 'Add to Bag') + '</button>' +
-    '<button class="btn-wishlist ' + (isWished ? 'active' : '') + '" id="wishlistBtn" onclick="toggleProductWishlist(' + product.id + ')">' + (isWished ? '&#10084;' : '&#9825;') + '</button>' +
-    '</div>' +
-    '<div class="product-meta">' +
-    '<p><strong>Category:</strong> ' + product.category.replace('-', ' ').toUpperCase() + '</p>' +
-    '<p><strong>Shipping:</strong> Free delivery on orders over PKR 5,000</p>' +
-    '<p><strong>Returns:</strong> Easy 7-day exchange policy</p>' +
-    '</div>';
-
-  // Related products
-  const relatedContainer = document.getElementById('relatedProducts');
-  if (relatedContainer) {
-    const related = products.filter(p => p.id !== product.id && (p.category === product.category || p.category.includes(product.category.split('-')[0]))).slice(0, 4);
-    if (related.length > 0) {
-      relatedContainer.innerHTML = '<h2>You May Also Like</h2><div class="product-grid">' + related.map(p => renderProductCard(p)).join('') + '</div>';
-    }
+  if (info) {
+    info.innerHTML = `
+      <h1 class="product-info-title">${product.name}</h1>
+      <div class="product-info-sku">SKU: ${product.sku}</div>
+      <div class="product-info-price">PKR ${product.price.toLocaleString()}</div>
+      <div class="product-info-stock ${stockClass}">${stockText}</div>
+      <div class="product-rating">
+        <span class="stars">${'&#9733;'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '&#9733;' : ''}${'&#9734;'.repeat(5 - Math.ceil(product.rating))}</span>
+        <span class="review-count">${product.rating} (${product.reviews} reviews)</span>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item open">
+          <div class="accordion-header" onclick="toggleAccordion(this)">Description <span class="accordion-icon">+</span></div>
+          <div class="accordion-body">${product.description}</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">Fabric Details <span class="accordion-icon">+</span></div>
+          <div class="accordion-body">Premium quality fabric with digital print. Shirt: 3.0 meters, Dupatta: 2.5 meters, Trouser: 2.5 meters. Fabric: 100% Pure Lawn.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">Care Instructions <span class="accordion-icon">+</span></div>
+          <div class="accordion-body">Dry clean recommended. Hand wash in cold water with mild detergent. Do not bleach. Iron on medium heat.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">Shipping & Returns <span class="accordion-icon">+</span></div>
+          <div class="accordion-body">Free shipping on orders over PKR 5,000. Standard delivery: 3-5 business days. Express: 1-2 business days. Easy 7-day exchange policy.</div>
+        </div>
+      </div>
+      <div class="size-selector">
+        <div class="size-selector-header">
+          <label class="size-selector-label">Select Size</label>
+          <span class="size-guide-link" onclick="openSizeGuide()">Size Guide</span>
+        </div>
+        <div class="size-options" id="sizeOptions">
+          ${product.sizes.map((s, i) => '<button class="size-option ' + (i === 0 ? 'active' : '') + '" onclick="selectSize(this)">' + s + '</button>').join('')}
+        </div>
+      </div>
+      <div class="quantity-selector">
+        <label class="quantity-label">Quantity</label>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <input type="text" value="1" id="qtyInput" class="qty-input" readonly>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <div class="product-actions">
+        <button class="btn-add-cart" id="addCartBtn" onclick="addProductToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>${product.stock === 0 ? 'Out of Stock' : 'Add to Bag'}</button>
+        <button class="btn-wishlist ${isWished ? 'active' : ''}" id="wishlistBtn" onclick="toggleProductWishlist(${product.id})">${isWished ? '&#10084;' : '&#9825;'}</button>
+      </div>
+      <div class="product-meta">
+        <p class="product-meta-item"><strong>Category:</strong> ${product.category.replace('-', ' ').toUpperCase()}</p>
+        <p class="product-meta-item"><strong>Shipping:</strong> Free delivery on orders over PKR 5,000</p>
+        <p class="product-meta-item"><strong>Returns:</strong> Easy 7-day exchange policy</p>
+      </div>
+    `;
   }
 
-  // Breadcrumb product name
-  const breadcrumb = document.getElementById('breadcrumbProduct');
-  if (breadcrumb) breadcrumb.textContent = product.name;
+  // Related products
+  const related = products.filter(p => p.id !== product.id && (p.category === product.category || p.category.includes(product.category.split('-')[0]))).slice(0, 4);
+  const relatedEl = document.getElementById('relatedProducts');
+  if (relatedEl && related.length > 0) {
+    relatedEl.innerHTML = '<h2 class="related-title">You May Also Like</h2><div class="product-grid">' + related.map(p => renderProductCard(p)).join('') + '</div>';
+  }
 
   renderRecentlyViewed();
   updateCartBadge();
 }
 
 function setMainImage(src, thumb) {
-  const mainImg = document.getElementById('mainImage');
-  if (mainImg) mainImg.src = src;
-  document.querySelectorAll('.gallery-thumbs img').forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
+  const main = document.getElementById('mainImage');
+  if (main) main.src = src;
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  if (thumb) thumb.classList.add('active');
 }
 
 function toggleAccordion(header) {
@@ -526,7 +511,7 @@ function addProductToCart(productId) {
   const activeSize = document.querySelector('.size-option.active');
   const size = activeSize ? activeSize.textContent : 'M';
   const qtyInput = document.getElementById('qtyInput');
-  const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+  const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
   addToCart(productId, size, qty);
 }
 
@@ -568,27 +553,33 @@ function initCart() {
   if (layout) layout.style.display = 'grid';
   if (emptyCart) emptyCart.style.display = 'none';
 
-  if (itemsContainer) itemsContainer.innerHTML = cart.map(item => {
-    const product = products.find(p => p.id === item.id);
-    if (!product) return '';
-    return '<div class="cart-item">' +
-      '<img src="' + product.image + '" alt="' + product.name + '">' +
-      '<div class="cart-item-details">' +
-      '<h3>' + product.name + '</h3>' +
-      '<div class="variant">Size: ' + item.size + '</div>' +
-      '<div class="qty-controls" style="border:none;margin-bottom:10px;">' +
-      '<button onclick="updateCartQty(' + item.id + ', '' + item.size + '', -1)">−</button>' +
-      '<input type="text" value="' + item.qty + '" readonly style="width:40px;">' +
-      '<button onclick="updateCartQty(' + item.id + ', '' + item.size + '', 1)">+</button>' +
-      '</div>' +
-      '<div class="cart-actions">' +
-      '<button onclick="removeFromCart(' + item.id + ', '' + item.size + '')">Remove</button>' +
-      '<button onclick="moveToWishlist(' + item.id + ', '' + item.size + '')">Move to Wishlist</button>' +
-      '</div>' +
-      '</div>' +
-      '<div class="cart-item-price">PKR ' + (product.price * item.qty).toLocaleString() + '</div>' +
-      '</div>';
-  }).join('');
+  if (itemsContainer) {
+    itemsContainer.innerHTML = cart.map(item => {
+      const product = products.find(p => p.id === item.id);
+      if (!product) return '';
+      return `
+        <div class="cart-item">
+          <img class="cart-item-img" src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/placeholder-product.jpg'">
+          <div class="cart-item-details">
+            <h3 class="cart-item-title">${product.name}</h3>
+            <div class="cart-item-variant">Size: ${item.size}</div>
+            <div class="cart-item-qty">
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateCartQty(${item.id}, '${item.size}', -1)">−</button>
+                <input type="text" value="${item.qty}" class="qty-input" readonly>
+                <button class="qty-btn" onclick="updateCartQty(${item.id}, '${item.size}', 1)">+</button>
+              </div>
+            </div>
+            <div class="cart-item-actions">
+              <button class="cart-item-action-btn" onclick="removeFromCart(${item.id}, '${item.size}')">Remove</button>
+              <button class="cart-item-action-btn" onclick="moveToWishlist(${item.id}, '${item.size}')">Move to Wishlist</button>
+            </div>
+          </div>
+          <div class="cart-item-price">PKR ${(product.price * item.qty).toLocaleString()}</div>
+        </div>
+      `;
+    }).join('');
+  }
 
   const subtotal = getCartTotal();
   const discount = getDiscount();
@@ -599,32 +590,30 @@ function initCart() {
   const progress = Math.min(100, (subtotal / freeShipThreshold) * 100);
 
   const couponHtml = getCoupon() ?
-    '<div class="coupon-applied">Coupon &quot;' + getCoupon() + '&quot; applied — PKR ' + discount.toLocaleString() + ' saved</div>' :
-    '<form class="coupon-form" onsubmit="applyCoupon(event)">' +
-    '<input type="text" placeholder="Enter promo code" id="couponInput">' +
-    '<button type="submit">Apply</button>' +
-    '</form>';
+    '<div class="coupon-applied">Coupon "' + getCoupon() + '" applied — PKR ' + discount.toLocaleString() + ' saved</div>' :
+    '<form class="coupon-form" onsubmit="applyCoupon(event)"><input type="text" placeholder="Enter promo code" id="couponInput" class="coupon-input"><button type="submit" class="coupon-btn">Apply</button></form>';
 
-  if (summaryContainer) summaryContainer.innerHTML =
-    '<h2>Order Summary</h2>' +
-    '<div class="shipping-bar">' +
-    '<p>' + (remaining > 0 ? 'Add PKR ' + remaining.toLocaleString() + ' more for free shipping!' : 'You qualify for free shipping!') + '</p>' +
-    '<div class="progress"><div class="progress-fill" style="width:' + progress + '%"></div></div>' +
-    '</div>' +
-    couponHtml +
-    '<div class="summary-row"><span>Subtotal</span><span>PKR ' + subtotal.toLocaleString() + '</span></div>' +
-    (discount > 0 ? '<div class="summary-row discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : '') +
-    '<div class="summary-row"><span>Shipping</span><span>' + (shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()) + '</span></div>' +
-    '<div class="summary-row total"><span>Total</span><span>PKR ' + total.toLocaleString() + '</span></div>' +
-    '<button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>';
-
+  if (summaryContainer) {
+    summaryContainer.innerHTML = `
+      <h2 class="cart-summary-title">Order Summary</h2>
+      <div class="shipping-bar">
+        <p class="shipping-bar-text">${remaining > 0 ? 'Add PKR ' + remaining.toLocaleString() + ' more for free shipping!' : 'You qualify for free shipping!'}</p>
+        <div class="shipping-bar-progress"><div class="shipping-bar-fill" style="width:${progress}%"></div></div>
+      </div>
+      ${couponHtml}
+      <div class="summary-row"><span>Subtotal</span><span>PKR ${subtotal.toLocaleString()}</span></div>
+      ${discount > 0 ? '<div class="summary-row summary-row-discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : ''}
+      <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()}</span></div>
+      <div class="summary-row summary-row-total"><span>Total</span><span>PKR ${total.toLocaleString()}</span></div>
+      <button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
+    `;
+  }
   updateCartBadge();
 }
 
 function applyCoupon(e) {
   e.preventDefault();
-  const input = document.getElementById('couponInput');
-  const code = input ? input.value.trim().toUpperCase() : '';
+  const code = document.getElementById('couponInput').value.trim().toUpperCase();
   if (code === 'WELCOME10') {
     saveCoupon('WELCOME10');
     showToast('Coupon applied! 10% off');
@@ -650,26 +639,28 @@ function initCheckout() {
   const shipping = subtotal >= 5000 ? 0 : 250;
   const total = subtotal - discount + shipping;
 
-  container.innerHTML =
-    '<h2 style="font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px;font-weight:400;">Order Summary</h2>' +
-    cart.map(item => {
+  container.innerHTML = `
+    <h2 style="font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px;font-weight:400;">Order Summary</h2>
+    ${cart.map(item => {
       const product = products.find(p => p.id === item.id);
       if (!product) return '';
-      return '<div class="order-item">' +
-        '<img src="' + product.image + '" alt="' + product.name + '">' +
-        '<div class="order-item-info">' +
-        '<h4>' + product.name + '</h4>' +
-        '<p>Qty: ' + item.qty + ' | Size: ' + item.size + '</p>' +
-        '<p><strong>PKR ' + (product.price * item.qty).toLocaleString() + '</strong></p>' +
-        '</div>' +
-        '</div>';
-    }).join('') +
-    '<div class="summary-row" style="margin-top:20px;padding-top:20px;border-top:1px solid #eee;"><span>Subtotal</span><span>PKR ' + subtotal.toLocaleString() + '</span></div>' +
-    (discount > 0 ? '<div class="summary-row discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : '') +
-    '<div class="summary-row"><span>Shipping</span><span>' + (shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()) + '</span></div>' +
-    '<div class="summary-row total" style="font-size:18px;font-weight:600;margin-top:15px;padding-top:15px;border-top:1px solid #ddd;"><span>Total</span><span>PKR ' + total.toLocaleString() + '</span></div>';
+      return `
+        <div class="order-item">
+          <img class="order-item-img" src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/placeholder-product.jpg'">
+          <div class="order-item-info">
+            <h4 class="order-item-title">${product.name}</h4>
+            <p class="order-item-meta">Qty: ${item.qty} | Size: ${item.size}</p>
+            <p class="order-item-price"><strong>PKR ${(product.price * item.qty).toLocaleString()}</strong></p>
+          </div>
+        </div>
+      `;
+    }).join('')}
+    <div class="summary-row" style="margin-top:20px;padding-top:20px;border-top:1px solid #eee;"><span>Subtotal</span><span>PKR ${subtotal.toLocaleString()}</span></div>
+    ${discount > 0 ? '<div class="summary-row summary-row-discount"><span>Discount</span><span>-PKR ' + discount.toLocaleString() + '</span></div>' : ''}
+    <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : 'PKR ' + shipping.toLocaleString()}</span></div>
+    <div class="summary-row summary-row-total" style="font-size:18px;font-weight:600;margin-top:15px;padding-top:15px;border-top:1px solid #ddd;"><span>Total</span><span>PKR ${total.toLocaleString()}</span></div>
+  `;
 
-  // Payment method selection
   document.querySelectorAll('.payment-method').forEach(pm => {
     pm.addEventListener('click', function() {
       document.querySelectorAll('.payment-method').forEach(p => p.classList.remove('active'));
@@ -680,7 +671,6 @@ function initCheckout() {
     });
   });
 
-  // Shipping option selection
   document.querySelectorAll('.shipping-option').forEach(so => {
     so.addEventListener('click', function() {
       document.querySelectorAll('.shipping-option').forEach(s => s.classList.remove('active'));
@@ -695,13 +685,7 @@ function placeOrder() {
   if (cart.length === 0) { showToast('Your cart is empty'); return; }
   const orderId = 'BAROQUE-' + Date.now().toString(36).toUpperCase();
   const orders = getOrders();
-  orders.push({
-    id: orderId,
-    date: new Date().toISOString().split('T')[0],
-    items: cart,
-    total: getCartTotal(),
-    status: 'processing'
-  });
+  orders.push({ id: orderId, date: new Date().toISOString().split('T')[0], items: cart, total: getCartTotal(), status: 'processing' });
   saveOrders(orders);
   localStorage.removeItem('baroqueCart');
   localStorage.removeItem('baroqueCoupon');
@@ -714,7 +698,8 @@ function switchTab(tab) {
   document.querySelectorAll('.account-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.account-form').forEach(f => f.classList.remove('active'));
   event.target.classList.add('active');
-  document.getElementById(tab + 'Form').classList.add('active');
+  const form = document.getElementById(tab + 'Form');
+  if (form) form.classList.add('active');
 }
 
 function handleLogin(e) {
@@ -735,8 +720,8 @@ function initAccount() {
   if (getLoggedIn()) {
     const container = document.querySelector('.account-container');
     if (container) container.style.display = 'none';
-    const dashboard = document.getElementById('accountDashboard');
-    if (dashboard) dashboard.classList.add('active');
+    const dash = document.getElementById('accountDashboard');
+    if (dash) dash.classList.add('active');
     renderOrders();
   }
 }
@@ -751,13 +736,15 @@ function renderOrders() {
   }
   tbody.innerHTML = orders.map(o => {
     const product = products.find(p => p.id === o.items[0].id);
-    return '<tr>' +
-      '<td>' + o.id + '</td>' +
-      '<td>' + o.date + '</td>' +
-      '<td>' + (product ? product.name : 'Product') + (o.items.length > 1 ? ' + ' + (o.items.length - 1) + ' more' : '') + '</td>' +
-      '<td><span class="order-status ' + o.status + '">' + o.status + '</span></td>' +
-      '<td>PKR ' + o.total.toLocaleString() + '</td>' +
-      '</tr>';
+    return `
+      <tr>
+        <td>${o.id}</td>
+        <td>${o.date}</td>
+        <td>${product ? product.name : 'Product'} ${o.items.length > 1 ? '+ ' + (o.items.length - 1) + ' more' : ''}</td>
+        <td><span class="order-status order-status-${o.status}">${o.status}</span></td>
+        <td>PKR ${o.total.toLocaleString()}</td>
+      </tr>
+    `;
   }).join('');
 }
 
@@ -799,7 +786,6 @@ window.addEventListener('DOMContentLoaded', () => {
   updateCartBadge();
   updateWishlistIcons();
 
-  // Popup
   if (!localStorage.getItem('popupClosed') && document.getElementById('popup')) {
     setTimeout(() => {
       const popup = document.getElementById('popup');
@@ -807,7 +793,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000);
   }
 
-  // Header scroll
   window.addEventListener('scroll', () => {
     handleHeaderScroll();
     handleScrollTop();
@@ -815,12 +800,10 @@ window.addEventListener('DOMContentLoaded', () => {
   handleHeaderScroll();
   handleScrollTop();
 
-  // Mobile menu close on link click
   document.querySelectorAll('.nav-center a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Search input listener
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', e => doSearch(e.target.value));

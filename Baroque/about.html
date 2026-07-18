@@ -15,92 +15,93 @@
   <div class="header" id="header">
     <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
     <div class="nav-center" id="navMenu">
-        <a href="shop.html?sort=newest" class="active">New In</a>
-        <a href="shop.html" class="active">Ready to Wear</a>
-        <a href="shop.html?cat=unstitched" class="active">Unstitched</a>
-        <a href="shop.html?cat=formals" class="active">Formals</a>
+        <a href="shop.html?sort=newest" class="nav-link active">New In</a>
+        <a href="shop.html" class="nav-link active">Ready to Wear</a>
+        <a href="shop.html?cat=unstitched" class="nav-link active">Unstitched</a>
+        <a href="shop.html?cat=formals" class="nav-link active">Formals</a>
 
     </div>
     <a href="index.html" class="logo">Baroque</a>
     <div class="header-icons">
-      <button onclick="openSearch()" title="Search">Search</button>
-      <a href="account.html" title="Account">Account</a>
-      <a href="wishlist.html" title="Wishlist">Wishlist</a>
-      <a href="cart.html" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
+      <button class="header-icon-btn" onclick="openSearch()" title="Search">Search</button>
+      <a href="account.html" class="header-icon" title="Account">Account</a>
+      <a href="wishlist.html" class="header-icon" title="Wishlist">Wishlist</a>
+      <a href="cart.html" class="header-icon" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
     </div>
   </div>
 
   <div class="search-overlay" id="searchOverlay">
     <button class="search-close" onclick="closeSearch()">&times;</button>
     <div class="search-box">
-      <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+      <input type="text" placeholder="Search products..." id="searchInput" class="search-box-input" autocomplete="off">
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
 
   <div class="breadcrumbs">
-    <a href="index.html">Home</a>
-    <span>/</span>
-    <span class="current">About</span>
+    <a href="index.html">Home</a> <span class="breadcrumbs-sep">/</span> <span class="breadcrumbs-current">About</span>
   </div>
 
   <div class="page-container">
     <div class="page-header">
-      <h1>About Baroque</h1>
-      <p>Redefining Pakistani fashion since 2010</p>
+      <h1 class="page-header-title">About Baroque</h1>
+      <p class="page-header-subtitle">Redefining Pakistani fashion since 2010</p>
     </div>
 
     <div class="about-content">
-      <img src="https://baroque.pk/cdn/shop/files/1_8e420fd7-9e3d-4823-9f51-5af5d28f5868.jpg?v=1781592186&width=1000" alt="About Baroque" />
+      <!-- PLACEHOLDER: Replace with your about page image -->
+      <img src="assets/images/about/about-story.jpg" alt="About Baroque" class="about-img" onerror="this.src='assets/images/placeholder-about.jpg'" />
       <div class="about-text">
-        <h2>Our Story</h2>
-        <p>Baroque was founded with a vision to bring luxury Pakistani fashion to women who appreciate elegance, craftsmanship, and timeless design. What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses.</p>
-        <p>Our collections blend traditional techniques with contemporary aesthetics, creating pieces that honor our heritage while embracing modern style. Every garment is crafted with meticulous attention to detail, from the selection of premium fabrics to the final stitch.</p>
-        <p>Today, Baroque stands as a symbol of sophistication in South Asian fashion, with a presence across Pakistan and a growing international clientele who seek authentic, high-quality Pakistani attire.</p>
+        <h2 class="about-text-title">Our Story</h2>
+        <p class="about-text-para">Baroque was founded with a vision to bring luxury Pakistani fashion to women who appreciate elegance, craftsmanship, and timeless design. What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses.</p>
+        <p class="about-text-para">Our collections blend traditional techniques with contemporary aesthetics, creating pieces that honor our heritage while embracing modern style. Every garment is crafted with meticulous attention to detail, from the selection of premium fabrics to the final stitch.</p>
+        <p class="about-text-para">Today, Baroque stands as a symbol of sophistication in South Asian fashion, with a presence across Pakistan and a growing international clientele who seek authentic, high-quality Pakistani attire.</p>
       </div>
     </div>
 
-    <div class="section-heading"><h2>Our Journey</h2></div>
+    <div class="section-heading">
+      <h2 class="section-title">Our Journey</h2>
+    </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="year">2010</div>
-        <h3>The Beginning</h3>
-        <p>Baroque opens its first atelier in Lahore with a small team of master artisans.</p>
+        <div class="timeline-year">2010</div>
+        <h3 class="timeline-title">The Beginning</h3>
+        <p class="timeline-text">Baroque opens its first atelier in Lahore with a small team of master artisans.</p>
       </div>
       <div class="timeline-item">
-        <div class="year">2014</div>
-        <h3>First Flagship Store</h3>
-        <p>Launch of the Dolmen Mall flagship store, establishing Baroque as a premium retail brand.</p>
+        <div class="timeline-year">2014</div>
+        <h3 class="timeline-title">First Flagship Store</h3>
+        <p class="timeline-text">Launch of the Dolmen Mall flagship store, establishing Baroque as a premium retail brand.</p>
       </div>
       <div class="timeline-item">
-        <div class="year">2018</div>
-        <h3>Digital Expansion</h3>
-        <p>Baroque.pk goes live, bringing our collections to customers across Pakistan and beyond.</p>
+        <div class="timeline-year">2018</div>
+        <h3 class="timeline-title">Digital Expansion</h3>
+        <p class="timeline-text">Baroque.pk goes live, bringing our collections to customers across Pakistan and beyond.</p>
       </div>
       <div class="timeline-item">
-        <div class="year">2022</div>
-        <h3>International Reach</h3>
-        <p>Baroque begins shipping to the UK, USA, UAE, and Canada, serving the global diaspora.</p>
+        <div class="timeline-year">2022</div>
+        <h3 class="timeline-title">International Reach</h3>
+        <p class="timeline-text">Baroque begins shipping to the UK, USA, UAE, and Canada, serving the global diaspora.</p>
       </div>
       <div class="timeline-item">
-        <div class="year">2026</div>
-        <h3>Eid Lawn 26</h3>
-        <p>Our biggest collection yet, celebrating 16 years of Pakistani fashion excellence.</p>
+        <div class="timeline-year">2026</div>
+        <h3 class="timeline-title">Eid Lawn 26</h3>
+        <p class="timeline-text">Our biggest collection yet, celebrating 16 years of Pakistani fashion excellence.</p>
       </div>
     </div>
 
     <div class="values-grid">
       <div class="value-card">
-        <h3>CRAFTSMANSHIP</h3>
-        <p>Every piece is handcrafted by skilled artisans using time-honored techniques passed down through generations.</p>
+        <h3 class="value-card-title">CRAFTSMANSHIP</h3>
+        <p class="value-card-text">Every piece is handcrafted by skilled artisans using time-honored techniques passed down through generations.</p>
       </div>
       <div class="value-card">
-        <h3>QUALITY</h3>
-        <p>We source only the finest fabrics and materials, ensuring each garment meets our exacting standards.</p>
+        <h3 class="value-card-title">QUALITY</h3>
+        <p class="value-card-text">We source only the finest fabrics and materials, ensuring each garment meets our exacting standards.</p>
       </div>
       <div class="value-card">
-        <h3>HERITAGE</h3>
-        <p>Our designs celebrate Pakistani cultural heritage while embracing contemporary global fashion trends.</p>
+        <h3 class="value-card-title">HERITAGE</h3>
+        <p class="value-card-text">Our designs celebrate Pakistani cultural heritage while embracing contemporary global fashion trends.</p>
       </div>
     </div>
   </div>
@@ -108,46 +109,46 @@
   <div class="footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>About</h4>
-        <a href="about.html">Who We Are</a>
-        <a href="about.html">Our Responsibility</a>
-        <a href="about.html">Careers</a>
+        <h4 class="footer-col-title">About</h4>
+        <a href="about.html" class="footer-link">Who We Are</a>
+        <a href="about.html" class="footer-link">Our Responsibility</a>
+        <a href="about.html" class="footer-link">Careers</a>
         <p class="footer-contact-text">
           Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
         </p>
       </div>
       <div class="footer-col">
-        <h4>Customer Service</h4>
-        <a href="contact.html">Contact Us</a>
-        <a href="about.html">Dispatch Timeline</a>
-        <a href="about.html">Exchange Information</a>
+        <h4 class="footer-col-title">Customer Service</h4>
+        <a href="contact.html" class="footer-link">Contact Us</a>
+        <a href="about.html" class="footer-link">Dispatch Timeline</a>
+        <a href="about.html" class="footer-link">Exchange Information</a>
         <p class="footer-service-text">Email: info@baroque.pk</p>
         <p class="footer-service-text">UAN 111-302-302</p>
         <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
       </div>
       <div class="footer-col">
-        <h4>Policies</h4>
-        <a href="about.html">Privacy Policy</a>
-        <a href="about.html">Refund Policy</a>
-        <a href="about.html">Shipping Policy</a>
-        <a href="about.html">Terms of Service</a>
+        <h4 class="footer-col-title">Policies</h4>
+        <a href="about.html" class="footer-link">Privacy Policy</a>
+        <a href="about.html" class="footer-link">Refund Policy</a>
+        <a href="about.html" class="footer-link">Shipping Policy</a>
+        <a href="about.html" class="footer-link">Terms of Service</a>
       </div>
       <div class="footer-col">
-        <h4>Newsletter</h4>
+        <h4 class="footer-col-title">Newsletter</h4>
         <form class="footer-form" onsubmit="subscribeFooter(event)">
-          <input type="email" placeholder="Your email" title="Email for newsletter" required>
-          <button type="submit">Join</button>
+          <input type="email" placeholder="Your email" title="Email for newsletter" class="footer-form-input" required>
+          <button type="submit" class="footer-form-btn">Join</button>
         </form>
       </div>
     </div>
     <div class="footer-social">
-      <a href="#" title="Instagram">&#9733;</a>
-      <a href="#" title="Facebook">&#9733;</a>
-      <a href="#" title="Pinterest">&#9733;</a>
-      <a href="#" title="YouTube">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Instagram">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Facebook">&#9733;</a>
+      <a href="#" class="footer-social-link" title="Pinterest">&#9733;</a>
+      <a href="#" class="footer-social-link" title="YouTube">&#9733;</a>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 - BAROQUE</p>
+      <p class="footer-bottom-text">&copy; 2026 - BAROQUE</p>
     </div>
   </div>
 
