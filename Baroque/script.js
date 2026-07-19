@@ -499,3 +499,73 @@
         }, 2500);
     }
 })();
+// ============================================
+// SHOP SORTING FUNCTIONALITY
+// ============================================
+
+(function() {
+    // Handle URL parameters for sorting
+    var urlParams = new URLSearchParams(window.location.search);
+    var sortParam = urlParams.get('sort');
+    var categoryParam = urlParams.get('category');
+    
+    var sortSelect = document.getElementById('shop-sort');
+    var productsGrid = document.getElementById('products-grid');
+    
+    // Apply sort from URL parameter
+    if (sortParam && sortSelect) {
+        sortSelect.value = sortParam;
+        applySort(sortParam);
+    }
+    
+    // Apply category filter from URL parameter
+    if (categoryParam) {
+        // You can add category filtering logic here
+        console.log('Category filter:', categoryParam);
+    }
+    
+    // Handle sort dropdown change
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            applySort(this.value);
+            // Update URL without reloading
+            var newUrl = new URL(window.location);
+            if (this.value === 'featured') {
+                newUrl.searchParams.delete('sort');
+            } else {
+                newUrl.searchParams.set('sort', this.value);
+            }
+            window.history.replaceState({}, '', newUrl);
+        });
+    }
+    
+    function applySort(sortType) {
+        if (!productsGrid) return;
+        
+        var cards = Array.from(productsGrid.querySelectorAll('.product-card'));
+        
+        cards.sort(function(a, b) {
+            var priceA = parseInt(a.dataset.price) || 0;
+            var priceB = parseInt(b.dataset.price) || 0;
+            var dateA = new Date(a.dataset.date || '2000-01-01');
+            var dateB = new Date(b.dataset.date || '2000-01-01');
+            
+            switch(sortType) {
+                case 'newest':
+                    return dateB - dateA;
+                case 'price-low':
+                    return priceA - priceB;
+                case 'price-high':
+                    return priceB - priceA;
+                case 'featured':
+                default:
+                    return 0; // Keep original order
+            }
+        });
+        
+        // Re-append in sorted order
+        cards.forEach(function(card) {
+            productsGrid.appendChild(card);
+        });
+    }
+})();
