@@ -1,159 +1,232 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about Baroque - Premium Pakistani Fashion Brand since 2010." />
-  <title>About Us - BAROQUE</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Baroque.pk</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<base target="_blank">
 </head>
-<body>
+<body data-page="about">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="header-logo">Baroque<span>.</span></a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">Home</a>
+                <a href="shop.html" class="header-nav-link">Shop</a>
+                <a href="shop.html?sort=newest" class="header-nav-link">New In</a>
+                <a href="about.html" class="header-nav-link active">About</a>
+                <a href="contact.html" class="header-nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="header-action-btn search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+                <a href="account.html" class="header-action-btn" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+                <a href="wishlist.html" class="header-action-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="header-action-badge wishlist-badge hidden">0</span>
+                </a>
+                <a href="cart.html" class="header-action-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="header-action-badge cart-badge hidden">0</span>
+                </a>
+                <button class="header-mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
 
-  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
-
-  <div class="header" id="header">
-    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
-    <div class="nav-center" id="navMenu">
-        <a href="shop.html?sort=newest" class="nav-link active">New In</a>
-        <a href="shop.html" class="nav-link active">Ready to Wear</a>
-        <a href="shop.html?cat=unstitched" class="nav-link active">Unstitched</a>
-        <a href="shop.html?cat=formals" class="nav-link active">Formals</a>
-
-    </div>
-    <a href="index.html" class="logo">Baroque</a>
-    <div class="header-icons">
-      <button class="header-icon-btn" onclick="openSearch()" title="Search">Search</button>
-      <a href="account.html" class="header-icon" title="Account">Account</a>
-      <a href="wishlist.html" class="header-icon" title="Wishlist">Wishlist</a>
-      <a href="cart.html" class="header-icon" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
-    </div>
-  </div>
-
-  <div class="search-overlay" id="searchOverlay">
-    <button class="search-close" onclick="closeSearch()">&times;</button>
-    <div class="search-box">
-      <input type="text" placeholder="Search products..." id="searchInput" class="search-box-input" autocomplete="off">
-    </div>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-
-  <div class="breadcrumbs">
-    <a href="index.html">Home</a> <span class="breadcrumbs-sep">/</span> <span class="breadcrumbs-current">About</span>
-  </div>
-
-  <div class="page-container">
-    <div class="page-header">
-      <h1 class="page-header-title">About Baroque</h1>
-      <p class="page-header-subtitle">Redefining Pakistani fashion since 2010</p>
-    </div>
-
-    <div class="about-content">
-      <!-- PLACEHOLDER: Replace with your about page image -->
-      <img src="assets/images/about/about-story.jpg" alt="About Baroque" class="about-img" onerror="this.src='assets/images/placeholder-about.jpg'" />
-      <div class="about-text">
-        <h2 class="about-text-title">Our Story</h2>
-        <p class="about-text-para">Baroque was founded with a vision to bring luxury Pakistani fashion to women who appreciate elegance, craftsmanship, and timeless design. What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses.</p>
-        <p class="about-text-para">Our collections blend traditional techniques with contemporary aesthetics, creating pieces that honor our heritage while embracing modern style. Every garment is crafted with meticulous attention to detail, from the selection of premium fabrics to the final stitch.</p>
-        <p class="about-text-para">Today, Baroque stands as a symbol of sophistication in South Asian fashion, with a presence across Pakistan and a growing international clientele who seek authentic, high-quality Pakistani attire.</p>
-      </div>
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="shop.html" class="mobile-menu-link">Shop</a>
+        <a href="shop.html?sort=newest" class="mobile-menu-link">New In</a>
+        <a href="about.html" class="mobile-menu-link">About</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <a href="account.html" class="mobile-menu-link">Account</a>
+        <a href="wishlist.html" class="mobile-menu-link">Wishlist</a>
+        <a href="cart.html" class="mobile-menu-link">Cart</a>
     </div>
 
-    <div class="section-heading">
-      <h2 class="section-title">Our Journey</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">2010</div>
-        <h3 class="timeline-title">The Beginning</h3>
-        <p class="timeline-text">Baroque opens its first atelier in Lahore with a small team of master artisans.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2014</div>
-        <h3 class="timeline-title">First Flagship Store</h3>
-        <p class="timeline-text">Launch of the Dolmen Mall flagship store, establishing Baroque as a premium retail brand.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2018</div>
-        <h3 class="timeline-title">Digital Expansion</h3>
-        <p class="timeline-text">Baroque.pk goes live, bringing our collections to customers across Pakistan and beyond.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2022</div>
-        <h3 class="timeline-title">International Reach</h3>
-        <p class="timeline-text">Baroque begins shipping to the UK, USA, UAE, and Canada, serving the global diaspora.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2026</div>
-        <h3 class="timeline-title">Eid Lawn 26</h3>
-        <p class="timeline-text">Our biggest collection yet, celebrating 16 years of Pakistani fashion excellence.</p>
-      </div>
+    <div class="search-overlay">
+        <div class="search-overlay-header">
+            <h2 class="text-2xl font-serif">Search</h2>
+            <button class="search-overlay-close" aria-label="Close search">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="search-overlay-input-wrapper">
+            <svg class="search-overlay-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" class="search-overlay-input" placeholder="Search products, categories..." autocomplete="off">
+        </div>
+        <div class="search-overlay-results"></div>
     </div>
 
-    <div class="values-grid">
-      <div class="value-card">
-        <h3 class="value-card-title">CRAFTSMANSHIP</h3>
-        <p class="value-card-text">Every piece is handcrafted by skilled artisans using time-honored techniques passed down through generations.</p>
-      </div>
-      <div class="value-card">
-        <h3 class="value-card-title">QUALITY</h3>
-        <p class="value-card-text">We source only the finest fabrics and materials, ensuring each garment meets our exacting standards.</p>
-      </div>
-      <div class="value-card">
-        <h3 class="value-card-title">HERITAGE</h3>
-        <p class="value-card-text">Our designs celebrate Pakistani cultural heritage while embracing contemporary global fashion trends.</p>
-      </div>
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-list">
+                <a href="index.html">Home</a>
+                <span class="breadcrumbs-separator">/</span>
+                <span class="breadcrumbs-current">About</span>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4 class="footer-col-title">About</h4>
-        <a href="about.html" class="footer-link">Who We Are</a>
-        <a href="about.html" class="footer-link">Our Responsibility</a>
-        <a href="about.html" class="footer-link">Careers</a>
-        <p class="footer-contact-text">
-          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Customer Service</h4>
-        <a href="contact.html" class="footer-link">Contact Us</a>
-        <a href="about.html" class="footer-link">Dispatch Timeline</a>
-        <a href="about.html" class="footer-link">Exchange Information</a>
-        <p class="footer-service-text">Email: info@baroque.pk</p>
-        <p class="footer-service-text">UAN 111-302-302</p>
-        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Policies</h4>
-        <a href="about.html" class="footer-link">Privacy Policy</a>
-        <a href="about.html" class="footer-link">Refund Policy</a>
-        <a href="about.html" class="footer-link">Shipping Policy</a>
-        <a href="about.html" class="footer-link">Terms of Service</a>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Newsletter</h4>
-        <form class="footer-form" onsubmit="subscribeFooter(event)">
-          <input type="email" placeholder="Your email" title="Email for newsletter" class="footer-form-input" required>
-          <button type="submit" class="footer-form-btn">Join</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-social">
-      <a href="#" class="footer-social-link" title="Instagram">&#9733;</a>
-      <a href="#" class="footer-social-link" title="Facebook">&#9733;</a>
-      <a href="#" class="footer-social-link" title="Pinterest">&#9733;</a>
-      <a href="#" class="footer-social-link" title="YouTube">&#9733;</a>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-bottom-text">&copy; 2026 - BAROQUE</p>
-    </div>
-  </div>
+    <section class="py-4xl">
+        <div class="container">
+            <div class="about-hero">
+                <div class="about-hero-content">
+                    <h1 class="about-hero-title">The Art of Elegance</h1>
+                    <p class="about-hero-text">Baroque.pk is a premium Pakistani fashion brand dedicated to redefining elegance through timeless designs and exceptional craftsmanship. Founded with a vision to bring luxury fashion to every woman, we blend traditional artistry with contemporary aesthetics.</p>
+                </div>
+                <div class="about-hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
-  <div class="toast" id="toast"></div>
-  <script src="script.js"></script>
+    <section class="py-4xl bg-off-white">
+        <div class="container">
+            <div class="about-story">
+                <div class="about-story-image">
+                </div>
+                <div class="about-story-content">
+                    <h2 class="text-2xl font-serif mb-lg">Our Story</h2>
+                    <p class="text-gray-600 mb-md">What began as a small atelier in Lahore has grown into one of Pakistan's most beloved fashion houses. Our journey started with a simple belief: that every woman deserves to feel elegant and confident.</p>
+                    <p class="text-gray-600 mb-md">Each Baroque creation is a testament to our commitment to quality. From hand-selected fabrics to intricate embellishments, every detail is carefully considered. Our design team draws inspiration from Pakistan's rich cultural heritage while embracing modern silhouettes.</p>
+                    <p class="text-gray-600">Today, Baroque.pk stands as a symbol of sophistication, serving customers across Pakistan and beyond with collections that celebrate femininity in all its forms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4xl">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header-title">Our Values</h2>
+                <p class="section-header-subtitle">The principles that guide everything we do</p>
+                <div class="section-header-line"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="value-card-title">Premium Quality</h3>
+                    <p class="value-card-text">We source only the finest fabrics and materials, ensuring every piece meets our exacting standards.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3 class="value-card-title">Global Inspiration</h3>
+                    <p class="value-card-text">Our designs blend Eastern traditions with Western sensibilities, creating truly unique fashion.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="value-card-title">Customer First</h3>
+                    <p class="value-card-text">Your satisfaction is our priority. We strive to exceed expectations with every interaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4xl bg-off-white">
+        <div class="container">
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="about-stat-number">10+</div>
+                    <div class="about-stat-label">Years of Excellence</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">500K+</div>
+                    <div class="about-stat-label">Happy Customers</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">50+</div>
+                    <div class="about-stat-label">Cities Served</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">100%</div>
+                    <div class="about-stat-label">Authentic Fabrics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Baroque<span>.</span></a>
+                    <p class="footer-desc">Redefining elegance with timeless designs and premium craftsmanship.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.06c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop</h4>
+                    <div class="footer-links">
+                        <a href="shop.html" class="footer-link">All Products</a>
+                        <a href="shop.html" class="footer-link">New Arrivals</a>
+                        <a href="shop.html" class="footer-link">Eid Collection</a>
+                        <a href="shop.html" class="footer-link">Chantelle</a>
+                        <a href="shop.html" class="footer-link">Sale</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Careers</a>
+                        <a href="#" class="footer-link">Press</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Size Guide</a>
+                        <a href="#" class="footer-link">Shipping Info</a>
+                        <a href="#" class="footer-link">Returns</a>
+                        <a href="#" class="footer-link">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 Baroque.pk. All rights reserved.</p>
+                <div class="footer-payment">
+                    <span class="text-sm text-gray-500">We accept:</span>
+                    <span class="text-sm text-gray-400">Visa</span>
+                    <span class="text-sm text-gray-400">Mastercard</span>
+                    <span class="text-sm text-gray-400">COD</span>
+                    <span class="text-sm text-gray-400">Bank Transfer</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,218 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Baroque - Premium Pakistani Fashion Brand. Shop Eid Lawn, Ready to Wear, Unstitched & Formal collections." />
-  <meta property="og:title" content="BAROQUE - Pakistani Fashion Brand" />
-  <meta property="og:description" content="Discover luxury Pakistani fashion. Eid Lawn 26, Chantelle, Essentials & more." />
-  <meta property="og:type" content="website" />
-  <title>BAROQUE - Pakistani Fashion Brand</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baroque.pk | Redefining Elegance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<base target="_blank">
 </head>
-<body>
-
-  <div class="popup-overlay" id="popup">
-    <div class="popup">
-      <button class="popup-close" onclick="closePopup()" title="Close newsletter popup">&times;</button>
-      <div class="popup-form">
-        <h2 class="popup-title">Join Our Newsletter</h2>
-        <p class="popup-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
-        <form class="popup-form" onsubmit="subscribePopup(event)">
-          <input type="email" placeholder="Enter your email" id="popupEmail" title="Email address for newsletter" class="popup-form-input" required />
-          <button type="submit" class="popup-form-btn">Subscribe</button>
-        </form>
-      </div>
-      <div class="popup-success">
-        <h2 class="popup-success-title">Welcome!</h2>
-        <p class="popup-success-code">Your 10% OFF code is <strong>WELCOME10</strong></p>
-        <p class="popup-success-note">Check your email for confirmation.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="top-bar">Free Shipping on Orders Over PKR 5,000</div>
-
-  <div class="header" id="header">
-    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
-    <div class="nav-center" id="navMenu">
-        <a href="shop.html?sort=newest" class="nav-link ">New In</a>
-        <a href="shop.html" class="nav-link ">Ready to Wear</a>
-        <a href="shop.html?cat=unstitched" class="nav-link ">Unstitched</a>
-        <a href="shop.html?cat=formals" class="nav-link ">Formals</a>
-
-    </div>
-    <a href="index.html" class="logo">Baroque</a>
-    <div class="header-icons">
-      <button class="header-icon-btn" onclick="openSearch()" title="Search">Search</button>
-      <a href="account.html" class="header-icon" title="Account">Account</a>
-      <a href="wishlist.html" class="header-icon" title="Wishlist">Wishlist</a>
-      <a href="cart.html" class="header-icon" title="Shopping Bag">Bag <span class="badge" id="cartBadge">0</span></a>
-    </div>
-  </div>
-
-  <div class="search-overlay" id="searchOverlay">
-    <button class="search-close" onclick="closeSearch()">&times;</button>
-    <div class="search-box">
-      <input type="text" placeholder="Search products..." id="searchInput" class="search-box-input" autocomplete="off">
-    </div>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-
-  <div class="hero">
-    <!-- PLACEHOLDER: Replace with your hero banner image -->
-    <img src="assets/images/banners/hero-banner.jpg" alt="EID LAWN 26 Fashion Campaign" class="hero-img" onerror="this.parentElement.classList.add('placeholder-banner')" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h2 class="hero-subtitle">Own Your New Look</h2>
-      <h1 class="hero-title">EID LAWN 26</h1>
-      <div class="hero-buttons">
-        <a href="shop.html?cat=unstitched" class="hero-btn">UNSTITCHED</a>
-        <a href="shop.html?cat=stitched" class="hero-btn">STITCHED</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-heading">
-    <h2 class="section-title">EID LAWN 26</h2>
-  </div>
-  <div class="dual-section">
-    <div class="dual-row">
-      <div class="dual-item" onclick="location.href='shop.html?cat=unstitched'">
-        <!-- PLACEHOLDER: Replace with your collection image -->
-        <img src="assets/images/collections/unstitched.jpg" alt="Unstitched Collection" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
-        <div class="dual-overlay"></div>
-        <div class="dual-content">
-          <a href="shop.html?cat=unstitched" class="dual-btn">UNSTITCHED</a>
+<body data-page="home">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="header-logo">Baroque<span>.</span></a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link active">Home</a>
+                <a href="shop.html" class="header-nav-link">Shop</a>
+                <a href="shop.html?sort=newest" class="header-nav-link">New In</a>
+                <a href="about.html" class="header-nav-link">About</a>
+                <a href="contact.html" class="header-nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="header-action-btn search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+                <a href="account.html" class="header-action-btn" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+                <a href="wishlist.html" class="header-action-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="header-action-badge wishlist-badge hidden">0</span>
+                </a>
+                <a href="cart.html" class="header-action-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="header-action-badge cart-badge hidden">0</span>
+                </a>
+                <button class="header-mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
         </div>
-      </div>
-      <div class="dual-item" onclick="location.href='shop.html?cat=stitched'">
-        <!-- PLACEHOLDER: Replace with your collection image -->
-        <img src="assets/images/collections/stitched.jpg" alt="Stitched Collection" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
-        <div class="dual-overlay"></div>
-        <div class="dual-content">
-          <a href="shop.html?cat=stitched" class="dual-btn">STITCHED</a>
+    </header>
+
+    <div class="mobile-menu">
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="shop.html" class="mobile-menu-link">Shop</a>
+        <a href="shop.html?sort=newest" class="mobile-menu-link">New In</a>
+        <a href="about.html" class="mobile-menu-link">About</a>
+        <a href="contact.html" class="mobile-menu-link">Contact</a>
+        <a href="account.html" class="mobile-menu-link">Account</a>
+        <a href="wishlist.html" class="mobile-menu-link">Wishlist</a>
+        <a href="cart.html" class="mobile-menu-link">Cart</a>
+    </div>
+
+    <div class="search-overlay">
+        <div class="search-overlay-header">
+            <h2 class="text-2xl font-serif">Search</h2>
+            <button class="search-overlay-close" aria-label="Close search">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-heading">
-    <h2 class="section-title">New Arrivals</h2>
-    <p class="section-subtitle">Shop the latest from our Eid Lawn 26 collection</p>
-  </div>
-  <div class="container-sm">
-    <div class="product-grid" id="newArrivals"></div>
-  </div>
-
-  <div class="section-heading">
-    <h2 class="section-title">READY TO WEAR</h2>
-  </div>
-  <div class="single-section">
-    <div class="single-item" onclick="location.href='shop.html'">
-      <!-- PLACEHOLDER: Replace with your collection image -->
-      <img src="assets/images/banners/ready-to-wear.jpg" alt="Ready to Wear Collection" class="single-item-img" onerror="this.src='assets/images/placeholder-banner.jpg'" />
-      <div class="single-overlay"></div>
-      <div class="corner-buttons corner-buttons-left">
-        <a href="shop.html?cat=summer" class="corner-btn">SUMMER</a>
-        <a href="shop.html" class="corner-btn">SHOP ALL</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-heading">
-    <h2 class="section-title">Chantelle Collection</h2>
-  </div>
-  <div class="dual-section">
-    <div class="dual-row">
-      <div class="dual-item" onclick="location.href='shop.html?cat=chantelle'">
-        <!-- PLACEHOLDER: Replace with your collection image -->
-        <img src="assets/images/collections/chantelle-unstitched.jpg" alt="Chantelle Unstitched" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
-        <div class="dual-overlay"></div>
-        <div class="dual-content">
-          <a href="shop.html?cat=chantelle" class="dual-btn">UNSTITCHED</a>
+        <div class="search-overlay-input-wrapper">
+            <svg class="search-overlay-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" class="search-overlay-input" placeholder="Search products, categories..." autocomplete="off">
         </div>
-      </div>
-      <div class="dual-item" onclick="location.href='shop.html?cat=chantelle-stitched'">
-        <!-- PLACEHOLDER: Replace with your collection image -->
-        <img src="assets/images/collections/chantelle-stitched.jpg" alt="Chantelle Stitched" class="dual-item-img" onerror="this.src='assets/images/placeholder-collection.jpg'" />
-        <div class="dual-overlay"></div>
-        <div class="dual-content">
-          <a href="shop.html?cat=chantelle-stitched" class="dual-btn">STITCHED</a>
+        <div class="search-overlay-results"></div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">New Collection 2026</p>
+            <h1 class="hero-title">The Art of<br>Elegance</h1>
+            <p class="hero-text">Discover timeless designs crafted with passion and precision. Each piece tells a story of heritage and modern sophistication.</p>
+            <div class="hero-buttons">
+                <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                <a href="about.html" class="btn btn-outline">Our Story</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="section-heading">
-    <h2 class="section-title">ESSENTIALS</h2>
-  </div>
-  <div class="single-section">
-    <div class="single-item" onclick="location.href='shop.html?cat=essentials'">
-      <!-- PLACEHOLDER: Replace with your collection image -->
-      <img src="assets/images/banners/essentials.jpg" alt="Essentials Collection" class="single-item-img" onerror="this.src='assets/images/placeholder-banner.jpg'" />
-      <div class="single-overlay"></div>
-      <div class="corner-buttons corner-buttons-right">
-        <a href="shop.html?cat=ensembles" class="corner-btn">ENSEMBLES</a>
-        <a href="shop.html?cat=dupattas" class="corner-btn">DUPATTAS</a>
-      </div>
-    </div>
-  </div>
+    <section class="py-4xl">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header-title">Shop by Collection</h2>
+                <p class="section-header-subtitle">Curated categories for every occasion</p>
+                <div class="section-header-line"></div>
+            </div>
+            <div class="collections-grid">
+                <a href="shop.html" class="collection-card">
+                    <div class="collection-overlay">
+                        <span class="collection-name">Eid Collection</span>
+                        <span class="collection-count">24 Products</span>
+                    </div>
+                </a>
+                <a href="shop.html" class="collection-card">
+                    <div class="collection-overlay">
+                        <span class="collection-name">Chantelle</span>
+                        <span class="collection-count">18 Products</span>
+                    </div>
+                </a>
+                <a href="shop.html" class="collection-card">
+                    <div class="collection-overlay">
+                        <span class="collection-name">Formal Wear</span>
+                        <span class="collection-count">32 Products</span>
+                    </div>
+                </a>
+                <a href="shop.html" class="collection-card">
+                    <div class="collection-overlay">
+                        <span class="collection-name">Accessories</span>
+                        <span class="collection-count">15 Products</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <div class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4 class="footer-col-title">About</h4>
-        <a href="about.html" class="footer-link">Who We Are</a>
-        <a href="about.html" class="footer-link">Our Responsibility</a>
-        <a href="about.html" class="footer-link">Careers</a>
-        <p class="footer-contact-text">
-          Our Shop: First Floor, Dolmen Mall,<br>Shop No F-06, A Block DHA Phase 6, Lahore
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Customer Service</h4>
-        <a href="contact.html" class="footer-link">Contact Us</a>
-        <a href="about.html" class="footer-link">Dispatch Timeline</a>
-        <a href="about.html" class="footer-link">Exchange Information</a>
-        <p class="footer-service-text">Email: info@baroque.pk</p>
-        <p class="footer-service-text">UAN 111-302-302</p>
-        <p class="footer-service-text">WhatsApp: +92 325 7001111</p>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Policies</h4>
-        <a href="about.html" class="footer-link">Privacy Policy</a>
-        <a href="about.html" class="footer-link">Refund Policy</a>
-        <a href="about.html" class="footer-link">Shipping Policy</a>
-        <a href="about.html" class="footer-link">Terms of Service</a>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-col-title">Newsletter</h4>
-        <form class="footer-form" onsubmit="subscribeFooter(event)">
-          <input type="email" placeholder="Your email" title="Email for newsletter" class="footer-form-input" required>
-          <button type="submit" class="footer-form-btn">Join</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-social">
-      <a href="#" class="footer-social-link" title="Instagram">&#9733;</a>
-      <a href="#" class="footer-social-link" title="Facebook">&#9733;</a>
-      <a href="#" class="footer-social-link" title="Pinterest">&#9733;</a>
-      <a href="#" class="footer-social-link" title="YouTube">&#9733;</a>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-bottom-text">&copy; 2026 - BAROQUE</p>
-    </div>
-  </div>
+    <section class="py-4xl bg-off-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header-title">New Arrivals</h2>
+                <p class="section-header-subtitle">The latest additions to our collection</p>
+                <div class="section-header-line"></div>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge new">New</span>
+                        <button class="product-wishlist add-to-wishlist" data-id="1" aria-label="Add to wishlist">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Chantelle Embroidered Shirt</h3>
+                        <div class="product-price">
+                            <span class="product-price-current">PKR 12,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <button class="product-wishlist add-to-wishlist" data-id="2" aria-label="Add to wishlist">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Silk Chiffon Dupatta</h3>
+                        <div class="product-price">
+                            <span class="product-price-current">PKR 4,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge sale">Sale</span>
+                        <button class="product-wishlist add-to-wishlist" data-id="3" aria-label="Add to wishlist">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Velvet Formal Dress</h3>
+                        <div class="product-price">
+                            <span class="product-price-current">PKR 18,900</span>
+                            <span class="product-price-old">PKR 24,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge new">New</span>
+                        <button class="product-wishlist add-to-wishlist" data-id="4" aria-label="Add to wishlist">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cotton Lawn Suit</h3>
+                        <div class="product-price">
+                            <span class="product-price-current">PKR 8,900</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-lg">
+                <a href="shop.html" class="btn btn-outline">View All Products</a>
+            </div>
+        </div>
+    </section>
 
-  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">&#8593;</button>
-  <div class="toast" id="toast"></div>
-  <script src="script.js"></script>
-  <script>
-    const newArrivals = products.slice(0, 4);
-    document.getElementById('newArrivals').innerHTML = newArrivals.map(p => renderProductCard(p)).join('');
-    updateWishlistIcons();
-  </script>
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-inner">
+                <h2 class="newsletter-title">Join the Baroque Family</h2>
+                <p class="newsletter-text">Subscribe for exclusive offers, early access to new collections, and style inspiration.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing!'); this.reset();">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Baroque<span>.</span></a>
+                    <p class="footer-desc">Redefining elegance with timeless designs and premium craftsmanship.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" class="footer-social-link" aria-label="YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.06c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop</h4>
+                    <div class="footer-links">
+                        <a href="shop.html" class="footer-link">All Products</a>
+                        <a href="shop.html" class="footer-link">New Arrivals</a>
+                        <a href="shop.html" class="footer-link">Eid Collection</a>
+                        <a href="shop.html" class="footer-link">Chantelle</a>
+                        <a href="shop.html" class="footer-link">Sale</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Careers</a>
+                        <a href="#" class="footer-link">Press</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Size Guide</a>
+                        <a href="#" class="footer-link">Shipping Info</a>
+                        <a href="#" class="footer-link">Returns</a>
+                        <a href="#" class="footer-link">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 Baroque.pk. All rights reserved.</p>
+                <div class="footer-payment">
+                    <span class="text-sm text-gray-500">We accept:</span>
+                    <span class="text-sm text-gray-400">Visa</span>
+                    <span class="text-sm text-gray-400">Mastercard</span>
+                    <span class="text-sm text-gray-400">COD</span>
+                    <span class="text-sm text-gray-400">Bank Transfer</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
