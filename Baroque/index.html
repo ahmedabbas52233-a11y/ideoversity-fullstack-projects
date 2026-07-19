@@ -58,72 +58,89 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
         </div>
-        <div class="search-overlay-input-wrapper">
-            <svg class="search-overlay-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" class="search-overlay-input" placeholder="Search products, categories..." autocomplete="off">
+        <div class="search-overlay-content">
+            <div class="search-input-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="text" class="search-overlay-input" placeholder="Search products, categories..." aria-label="Search products">
+            </div>
+            <div class="search-results"></div>
         </div>
-        <div class="search-overlay-results"></div>
     </div>
 
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="hero-subtitle">New Collection 2026</p>
-            <h1 class="hero-title">The Art of<br>Elegance</h1>
-            <p class="hero-text">Discover timeless designs crafted with passion and precision. Each piece tells a story of heritage and modern sophistication.</p>
-            <div class="hero-buttons">
-                <a href="shop.html" class="btn btn-primary">Shop Collection</a>
-                <a href="about.html" class="btn btn-outline">Our Story</a>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <span class="hero-label">New Collection 2026</span>
+                <h1 class="hero-title">The Art of<br>Elegance</h1>
+                <p class="hero-text">Discover timeless designs crafted with passion and precision. Each piece tells a story of heritage and modern sophistication.</p>
+                <div class="hero-actions">
+                    <a href="shop.html" class="btn btn-primary btn-lg">Shop Collection</a>
+                    <a href="about.html" class="btn btn-outline btn-lg">Our Story</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/id/1067/600/800" alt="New Collection 2026">
             </div>
         </div>
     </section>
 
-    <section class="py-4xl">
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-header-title">Shop by Collection</h2>
-                <p class="section-header-subtitle">Curated categories for every occasion</p>
-                <div class="section-header-line"></div>
+                <h2 class="section-title">Shop by Collection</h2>
+                <p class="section-subtitle">Curated categories for every occasion</p>
             </div>
             <div class="collections-grid">
-                <a href="shop.html" class="collection-card">
-                    <div class="collection-overlay">
-                        <span class="collection-name">Eid Collection</span>
-                        <span class="collection-count">24 Products</span>
+                <a href="shop.html?category=eid" class="collection-card">
+                    <div class="collection-card-image">
+                        <img src="https://picsum.photos/id/1080/400/300" alt="Eid Collection">
+                    </div>
+                    <div class="collection-card-content">
+                        <h3 class="collection-card-title">Eid Collection</h3>
+                        <p class="collection-card-count">24 Products</p>
                     </div>
                 </a>
-                <a href="shop.html" class="collection-card">
-                    <div class="collection-overlay">
-                        <span class="collection-name">Chantelle</span>
-                        <span class="collection-count">18 Products</span>
+                <a href="shop.html?category=chantelle" class="collection-card">
+                    <div class="collection-card-image">
+                        <img src="https://picsum.photos/id/1084/400/300" alt="Chantelle">
+                    </div>
+                    <div class="collection-card-content">
+                        <h3 class="collection-card-title">Chantelle</h3>
+                        <p class="collection-card-count">18 Products</p>
                     </div>
                 </a>
-                <a href="shop.html" class="collection-card">
-                    <div class="collection-overlay">
-                        <span class="collection-name">Formal Wear</span>
-                        <span class="collection-count">32 Products</span>
+                <a href="shop.html?category=formal" class="collection-card">
+                    <div class="collection-card-image">
+                        <img src="https://picsum.photos/id/1074/400/300" alt="Formal Wear">
+                    </div>
+                    <div class="collection-card-content">
+                        <h3 class="collection-card-title">Formal Wear</h3>
+                        <p class="collection-card-count">32 Products</p>
                     </div>
                 </a>
-                <a href="shop.html" class="collection-card">
-                    <div class="collection-overlay">
-                        <span class="collection-name">Accessories</span>
-                        <span class="collection-count">15 Products</span>
+                <a href="shop.html?category=accessories" class="collection-card">
+                    <div class="collection-card-image">
+                        <img src="https://picsum.photos/id/1070/400/300" alt="Accessories">
+                    </div>
+                    <div class="collection-card-content">
+                        <h3 class="collection-card-title">Accessories</h3>
+                        <p class="collection-card-count">15 Products</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-4xl bg-off-white">
+    <section class="section bg-off-white">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-header-title">New Arrivals</h2>
-                <p class="section-header-subtitle">The latest additions to our collection</p>
-                <div class="section-header-line"></div>
+                <h2 class="section-title">New Arrivals</h2>
+                <p class="section-subtitle">The latest additions to our collection</p>
             </div>
-            <div class="product-grid">
+            <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
+                        <img src="https://picsum.photos/id/1011/400/500" alt="Chantelle Embroidered Shirt" loading="lazy">
                         <span class="product-badge new">New</span>
                         <button class="product-wishlist add-to-wishlist" data-id="1" aria-label="Add to wishlist">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -131,26 +148,24 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Chantelle Embroidered Shirt</h3>
-                        <div class="product-price">
-                            <span class="product-price-current">PKR 12,500</span>
-                        </div>
+                        <p class="product-price">PKR 12,500</p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
+                        <img src="https://picsum.photos/id/1036/400/500" alt="Silk Chiffon Dupatta" loading="lazy">
                         <button class="product-wishlist add-to-wishlist" data-id="2" aria-label="Add to wishlist">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Silk Chiffon Dupatta</h3>
-                        <div class="product-price">
-                            <span class="product-price-current">PKR 4,500</span>
-                        </div>
+                        <p class="product-price">PKR 4,500</p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
+                        <img src="https://picsum.photos/id/1040/400/500" alt="Velvet Formal Dress" loading="lazy">
                         <span class="product-badge sale">Sale</span>
                         <button class="product-wishlist add-to-wishlist" data-id="3" aria-label="Add to wishlist">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -158,14 +173,12 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Velvet Formal Dress</h3>
-                        <div class="product-price">
-                            <span class="product-price-current">PKR 18,900</span>
-                            <span class="product-price-old">PKR 24,000</span>
-                        </div>
+                        <p class="product-price"><span class="product-price-sale">PKR 18,900</span> <span class="product-price-original">PKR 24,000</span></p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
+                        <img src="https://picsum.photos/id/1050/400/500" alt="Cotton Lawn Suit" loading="lazy">
                         <span class="product-badge new">New</span>
                         <button class="product-wishlist add-to-wishlist" data-id="4" aria-label="Add to wishlist">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -173,28 +186,26 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Cotton Lawn Suit</h3>
-                        <div class="product-price">
-                            <span class="product-price-current">PKR 8,900</span>
-                        </div>
+                        <p class="product-price">PKR 8,900</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-lg">
+            <div class="text-center mt-xl">
                 <a href="shop.html" class="btn btn-outline">View All Products</a>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-inner">
+    <section class="section newsletter">
+        <div class="container newsletter-inner">
+            <div class="newsletter-content">
                 <h2 class="newsletter-title">Join the Baroque Family</h2>
                 <p class="newsletter-text">Subscribe for exclusive offers, early access to new collections, and style inspiration.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing!'); this.reset();">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
             </div>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" aria-label="Email address" required>
+                <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -202,67 +213,46 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">Baroque<span>.</span></a>
-                    <p class="footer-desc">Redefining elegance with timeless designs and premium craftsmanship.</p>
+                    <a href="index.html" class="logo">Baroque<span>.</span>pk</a>
+                    <p>Redefining elegance with timeless designs and premium craftsmanship.</p>
                     <div class="footer-social">
-                        <a href="#" class="footer-social-link" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                        <a href="#" class="footer-social-link" aria-label="Facebook">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="#" class="footer-social-link" aria-label="Twitter">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-                        </a>
-                        <a href="#" class="footer-social-link" aria-label="YouTube">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.06c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-                        </a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="footer-title">Shop</h4>
-                    <div class="footer-links">
-                        <a href="shop.html" class="footer-link">All Products</a>
-                        <a href="shop.html" class="footer-link">New Arrivals</a>
-                        <a href="shop.html" class="footer-link">Eid Collection</a>
-                        <a href="shop.html" class="footer-link">Chantelle</a>
-                        <a href="shop.html" class="footer-link">Sale</a>
-                    </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?sort=newest">New Arrivals</a>
+                    <a href="shop.html?category=eid">Eid Collection</a>
+                    <a href="shop.html?category=chantelle">Chantelle</a>
+                    <a href="shop.html?category=sale">Sale</a>
                 </div>
-                <div>
-                    <h4 class="footer-title">Company</h4>
-                    <div class="footer-links">
-                        <a href="about.html" class="footer-link">About Us</a>
-                        <a href="contact.html" class="footer-link">Contact</a>
-                        <a href="#" class="footer-link">Careers</a>
-                        <a href="#" class="footer-link">Press</a>
-                    </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
                 </div>
-                <div>
-                    <h4 class="footer-title">Support</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">Size Guide</a>
-                        <a href="#" class="footer-link">Shipping Info</a>
-                        <a href="#" class="footer-link">Returns</a>
-                        <a href="#" class="footer-link">FAQ</a>
-                    </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">Size Guide</a>
+                    <a href="#">Shipping Info</a>
+                    <a href="#">Returns</a>
+                    <a href="#">FAQ</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>2026 Baroque.pk. All rights reserved.</p>
-                <div class="footer-payment">
-                    <span class="text-sm text-gray-500">We accept:</span>
-                    <span class="text-sm text-gray-400">Visa</span>
-                    <span class="text-sm text-gray-400">Mastercard</span>
-                    <span class="text-sm text-gray-400">COD</span>
-                    <span class="text-sm text-gray-400">Bank Transfer</span>
-                </div>
+                <p>We accept: Visa Mastercard COD Bank Transfer</p>
             </div>
         </div>
     </footer>
 
     <button class="scroll-top" aria-label="Scroll to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
     <script src="script.js"></script>
